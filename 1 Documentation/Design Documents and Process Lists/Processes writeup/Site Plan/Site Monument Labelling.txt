@@ -1,0 +1,52 @@
+Site Monument Number Labelling
+Checklist: Site Plan Checklist.xlsm
+1. Roof Plan
+	a) Find physical drawing. This drawing should already be highlighted to indicate which year each roof section was added in
+	b) Use command LABEL
+		i) select tdsb-smsc-building parapet lines from the dropdown menu
+		ii) click isolate to add "labelText-TEMP tdsb-smsc-building parapet lines" layer and hide all irrelevant layers
+		iii) click Select Objects. Select all objects from the original building, marked on the physical drawing. Press return, then mark the first addition. Keep adding sections until the building is covered. Pressing return a second time without selecting anything will ask for "x" sections, i.e. sections with an unknown year of construction. Return again will finish the command and bring the dialogue back. 
+		iv) Click Begin Labelling. Select the objects in section A in order. This will add text in the center of the object, and will add the correct monument id to the roof section. u will undo, b will go back to the previous label, and return will move to the next one. Follow the on screen instructions to label section A, B, C and so on.
+		v) Export labels is no longer useful. Options is unused in the end. Fix label brings up a small dialogue. Enter the label to be fixed. It will remove the label from the drawing, but will not change the object data of the section it was labelling. You can then select the new section to attach the data to.
+		Troubleshooting: Sometimes the label text will not be added. This is normal, don't worry about it. If you really want the text, inspect the polyline for why the REGION command wouldn't work properly.
+	c) Map old Roof IDs to RoofHub.xlsm. Using the physical drawing, fill out the table with the old and new roof id for each section. If multiple new sections correspond to one old section, write the same new id in both rows. If no old section corresponds to the new one, add a new line with the correct site id and school name. If no new section coressponds to an old one, leave the line blank.
+	d) Check for polyface mesh/2d polylines. Run RFC to remove them. These won't be labelled properly in the next few steps, so replace them with normal polylines (PL).
+2. Label both 8.5x11 and 11x17 layouts
+	a) Find the original site plan layout in the Master folder.
+	b) Turn on all layers
+	c) Delete raster image, site, facility footprint layers
+	d) turn off the "labeltext..." layer
+	e) run command UPDATELAYERS/UPLAY
+	f) 8.5x11. It should already contain the title block.
+		- unlock display, move to model space in the viewport, run DVIEW ALL TWist.
+		- TWist and pan the school into place, rotating to make the school vertical/horizontal.
+		- label all objects, and then copy all layers to clipboard
+		- fill out the title block, and rotate the north arrow to the correct orientation.
+	g) 11x17
+		- site plan checklist has some different information for a more manual way of copying to 11x17, ignore that.
+		- still in the 8.5x11 layout, run COPYADDR. It will copy the title block automatically into the 11x17 layout.
+		- paste the labels into the 11x17 layout.
+		- move, zoom, and rotate (with DVIEW) the 11x17 layout into place.
+		- Select all labels and run SCNMOVE, which will scale the space between the labels to match the 11x17 zoom level.
+		- select all labels and move into place
+	h) record the orientation information in "Orientation.xlsx"
+3. Landscape and Parking
+	a) using the BO command, add landscape polylines wherever there is lawn or trees. It is useful to add the ESRI map at this point.
+	b) Add parking points, if any are missing. Use the midpoint (MPO) command to add points midway between parking lines.
+4. 1st Check for common errors
+	a) Ensure no accessible parking spot labels are missing
+	b) Check for missing parking hatch. Add and explode ANSI 31, usually size 6 or 8.
+	c) Add missing soccer posts
+	d) Run FIXCIRCLES (or FC) to remove circles and replace them with polylines.
+	e) Replace portables and basketball nets with the new block (should already be done)
+	f) Add any missing fence gates
+	g) Add missing solar panels
+	h) Explode any unexploded blocks.
+5. Monument Numbers
+	a) Add "hidden" soccer fields (on "tdsb-smsc-playground soccerfield 2") and baseball diamonds (on "tdsb-smsc-playground baseball diamond 2"). Use rectangles and use BO to keep them from overlapping existing objects.
+	b) Run the site monument numbers command, SMN. It will automatically label most objects.
+	c) Run ISOM. This will isolate "tdsb-smsc-misc". Label these appropriately, with FLAG, BUNK, or SIGN.
+	Troubleshooting: SMN will sometimes fail. When that happens, run FIXERR. This will turn all broken polylines grey and will output the number that it changed. See FIXERR documentation for more.
+6. Playgrounds and Portables
+	a) Add playground and portable IDs by hand. Or fix my script to do it for you, but it's a bit of a pain.
+7. Final check, then move the drawing to the completed folder. A note about folder structure: each folder contains a sub folder for the next step. I found it most efficient to do step 1 for each drawing, move them to the next subfolder, and then do step 2, but it's up to you.

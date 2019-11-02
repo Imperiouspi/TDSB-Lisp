@@ -1,0 +1,3 @@
+Room IDs
+1. Run aexr. This should automatically label the room and everything.
+Troubleshooting: it may find polyface meshes. If this is the case it will warn you and ask you to check what it's done. The script tries to replace polyface meshes with polylines, but the vertices are NEVER in the right order. It may be wise to check for them before you run the lisp.

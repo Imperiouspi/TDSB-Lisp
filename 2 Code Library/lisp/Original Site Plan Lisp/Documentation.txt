@@ -1,0 +1,157 @@
+Commands
+	updatelayers 		Add several layers, to update old documents to the new standard
+	label 				Begin labelling process for room sections
+	fixall 				Fix all ids in a selection set to use the correct facility number (based on drawing name)
+	mpoint 				Draw a point between two specified points
+	mpo 				Shortcut for mpoint
+	uplay 				Shortcut for updatelayers
+
+Complete list of functions
+addlayers
+		c:updatelayers ()
+
+colorlines
+	;debug/testing command
+		c:colorLines ( / entitylist dxf_model layerfilter countervar sel_list ncolor clyr lyr)
+
+	;Ask for a selection of polylines
+		getSelection( / entitylist)
+	;Return a selection set of all objects on layer.
+		getlayer (sel_list layer / countervar slist)
+
+	;Set the color of an entity.
+	;e: NOT JUST AN ENAME. Pass in the list returned by (entget ename)
+		setcolor (e ncolor / vlaE clrR clrG clrB r g b)
+
+	;Reset color of the entity. Only works after (setcolor) has been run.
+		resetcolor (e / vlaE)
+
+	;Set the current layer as lyr. Will add the layer if it does not already exist.
+		setlayer (lyr)
+
+	;Written By Michael Puckett.
+		Table (s / d r)
+
+	;code from https://www.cadtutor.net/forum/topic/96-lisp-for-marks-centroids-of-closed-polylines/
+	;Place text "id" on "savedlayer" in the center of "selection"
+		placeText (selection id savedlayer / polySet polyList clyr Model newP1 obArr newReg newPt textString ht point text)
+
+	;Add an object data table to an object e.
+		addODTable (e tblname field)
+
+	;Attach a site id to entity e
+		addSiteID (e)
+
+	;Set the site Id to entity e, with text id.
+		setSiteID (e id)
+
+	;Retrieve the facility id from the document name (assuming the facility id is the first 4 characters of the name)
+		getschoolnum()
+		LM:ss->ent ( ss / i l )
+
+helper
+	;wrapper function for command
+		c:label ()
+
+	;Helper
+	;Controls DCL
+		helper ( / dcl_id layerList flag)
+
+	;Save layer when DCL is closed
+		saveLayer()
+	;Create "sections" list, color sections
+		createSections( / color sel_list enamelist)
+	;Turn on only savedlayer (set by the gui) and the text layer for savedlayer.
+		isolate()
+	;label room sections.
+		labelLayers ( / countervar sel ctvar a id sec)
+
+	;export sections and od to csv file
+		export( / ctvar countervar sec id)
+	;Load options window. Unused.
+		options( / dcl_id1)
+	;Save options
+		saveoptions ()
+
+	;Fix any roof id, replacing old monument id with the new one. Only the section and section number need by specified (i.e. "A4")
+		fixlabel( / dcl_id2 flag)
+	;Save the id entered in the fixlabel box before closing the box.
+		saveid ()
+
+	;Actually reset the label specified in "fixid".
+		redolabel ()
+
+	;; Function name: PSC = Polyline Self-Crossing
+	;; To determine whether a Polyline of any type Crosses itSelf.
+	;; With 3D Polylines, must have true intersection in 3D, not apparent in 2D.
+	;; Returns T if self-crossing, nil if not.
+		PSC (poly / pltyp plobj plverts plints)
+
+	;Fix all ids in a selection set after they were all set to use facility number 0388 rather than the correct one.
+		c:fixall ()
+
+movescale
+	;Scale space between labels to new size for 11x17 view. Requires scale to be calculated manually. 
+		c:scnmove()
+mp
+	;Draw a point at the midpoint of two points.
+		c:mpoint ()
+
+outlineobjectsv1-1	
+		c:outline ( / *error* idx sel )
+
+		*error* ( msg )
+
+		LM:outline ( sel / app are box cmd dis enl ent lst obj rtn tmp )
+
+		LM:ssboundingbox ( s / a b i m n o )
+
+		LM:startundo ( doc )
+
+		LM:endundo ( doc )
+
+siteplan-utils
+		c:mpo ()
+
+		c:uplay ()
+
+Downloaded files. See file for documentation. All functions copied to other files if used.
+del-layer
+		delbylayer (layname / *error* adoc umark sset sslen)
+
+		c:outline ( / *error* idx sel )
+
+		LM:outline ( sel / app are box cmd dis enl ent lst obj rtn tmp )
+
+		LM:ssboundingbox ( s / a b i m n o )
+
+		LM:startundo ( doc )
+
+		LM:endundo ( doc )
+
+OutlineObjectsV1-1
+		c:outline ( / *error* idx sel )
+
+		*error* ( msg )
+
+		LM:outline ( sel / app are box cmd dis enl ent lst obj rtn tmp )
+
+		LM:ssboundingbox ( s / a b i m n o )
+
+		LM:startundo ( doc )
+
+		LM:endundo ( doc )
+
+sel_by_OD_US
+		c:Sel_By_OD ( / js dxf_model all_fldnamelist all_fldtypelist all_vallist tbllist tbldef tblstr)
+
+WriteCSV-V1-1
+
+		LM:writecsv ( lst csv / des sep )
+
+	;writecsv but append instead of overwrite
+		appendcsv ( lst csv / des sep )
+
+		LM:lst->csv ( lst sep )
+
+		LM:csv-addquotes ( str sep / pos )

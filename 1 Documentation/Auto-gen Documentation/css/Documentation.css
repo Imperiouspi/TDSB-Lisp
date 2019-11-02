@@ -1,0 +1,77 @@
+@import "titlebar.css";
+@import "sidebar.css";
+@import "search.css";
+@import "process.css";
+@import "gencontent.css";
+@import "index.css";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font: 15px "Open Sans", sans-serif;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	scroll-behavior: smooth;
+	-webkit-transition: background-color 1000ms linear;
+	-o-transition: background-color 1000ms linear;
+	transition: background-color 1000ms linear;
+}
+
+#main {
+	margin-left: 250px;
+	margin-top: 100px;
+}
+
+#top {
+	font-size: 20px;
+}
+
+#header{
+	padding-bottom: 50px;
+	width: 90%;
+}
+
+.subheader{
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 10px;
+	white-space: normal;
+}
+
+.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.row:hover {
+	background-color: rgb(141, 198, 239);
+}
+
+.columnright {
+	-webkit-box-flex: 50%;
+	    -ms-flex: 50%;
+	        flex: 50%;
+	padding-bottom: 2px;
+}
+
+#block {
+	background: rgb(141, 198, 239);
+}
+
+#Welcome {
+	margin-top:100px;
+	margin-left: 50px;
+	font-size: 30px;
+	align-self: center;
+}

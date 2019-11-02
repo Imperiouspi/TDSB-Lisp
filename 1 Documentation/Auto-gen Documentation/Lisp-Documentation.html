@@ -1,0 +1,300 @@
+<DOCTYPE !html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="css/Documentation.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<title>Lisp Documentation</title>
+</head>
+<body>
+	<button onclick="topFunction()" id="topbtn" title="Go to top">Top</button>
+	<ul  id="titlebar">
+		<li id="Logo" class="menuitem menuBTN"><a class="menulink" href="Documentation.html">Noah Cassidy 2019 Code Database</a></li>
+		<li id="Tutorials" class="menuitem menuBTN"><a class="menulink" href="Process-Documentation.html">Processes</a></li>
+		<li id="Lisp" class="menuitem menuBTN current"><a class="menulink" href="Lisp-Documentation.html">Lisp Code Reference</a></li>
+		<li id="PS" class="menuitem menuBTN"><a class="menulink" href="PS-Documentation.html">Powershell Scripts</a></li>
+	</ul>
+	<div id="sideclr"><div id="sidebar">
+		<div id = "sbarheader"><b>Table of Contents</b></div>
+		<a href="#index" id = "indexbar" class = "qlink sbarlink"> <b>Index</b></a>
+	</div></div>
+	<div id="main">
+		<div id="Top">Lisp Documentation</div>
+		<div id="Topsub">Code by Noah Cassidy, unless otherwise indicated.</div>
+		<div id="header">This page includes: A complete list of commands, documentation 		of all functions, and an index. Click the command name to jump to the 			documentation.
+			<div class="subheader">Big Process</div>
+			These commands are used during the labelling and aligning processes. Use of these commands outside these specific cases is not recommended.
+			<div class="row">
+				<a class="qlink" href="#C:AEXR">AEXR</a>
+				<div class="columnright">Auto label rooms and export their labels</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:NEXR">NEXR</a>
+				<div class="columnright">Auto export room labels (like AEXR), but don't overwrite monument numbers</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:BEGIN">BEGIN</a>
+				<div class="columnright">Check drawing alignment</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:COPYACCESS">COPYACCESS</a>
+				<div class="columnright">Copy the contents of the "Access" tab</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:COPYADDR">COPYADDR</a>
+				<div class="columnright">Copy the attributes of the title block between 8.5x11 and 11x17 layouts.</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:ENTRANCE_IDS">ENTRANCE_IDS</a>
+				<div class="columnright">Move all entrance labels to model space</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:EXPORTNEWIDS">EXPORTNEWIDS</a>
+				<div class="columnright">Export and find room ids and labels, assign new monument ids to the rooms</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:EXR">EXR</a>
+				<div class="columnright">Shortcut for <a href="#C:EXPORTNEWIDS">EXPORTNEWIDS</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FAXESS">FAXESS</a>
+				<div class="columnright">Fix the accessibility drawing</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FAX">FAX</a>
+				<div class="columnright">Shortcut for <a href="#C:FAXESS">FAXESS</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FIXERR">FIXERR</a>
+				<div class="columnright">Detect errors for <a href="#C:SMN">SMN</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FIXROOM">FIXROOM</a>
+				<div class="columnright">Find broken net area polygons</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:LABELLAYER">LABELLAYER</a>
+				<div class="columnright">Add monument ids to a specific layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:LL">LL</a>
+				<div class="columnright">Shortcut for <a href="#C:LABELLAYER">LABELLAYER</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PASTEACCESS">PASTEACCESS</a>
+				<div class="columnright">Align the access drawing to an sdf drawing</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PASTEASPECTACCESS">PASTEASPECTACCESS</a>
+				<div class="columnright">Earlier iteration of <a href="#C:PASTEACCESS">PASTEACCESS</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PASTENOROTATE">PASTENOROTATE</a>
+				<div class="columnright">Insert the access drawing, but will not auto align</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PM">PM</a>
+				<div class="columnright">Shortcut for <a href="#C:PREPMERGE">PREPMERGE</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PREPMERGE">PREPMERGE</a>
+				<div class="columnright">Clean up a drawing before merging it.</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PREPALIGN">PREPALIGN</a>
+				<div class="columnright">Clean up an sdf drawing before aligning it</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:ROOF">ROOF</a>
+				<div class="columnright">Run the gui to label room sections.</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:SCNMOVE">SCNMOVE</a>
+				<div class="columnright">Scale objects from 8.5x11 to 11x17 drawing</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:SMN">SMN</a>
+				<div class="columnright">Label all monument numbers</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:STOP">STOP</a>
+				<div class="columnright">Detaches "All Site Plans" xref</div>
+			</div>
+
+			<div class="subheader">Utility</div>
+			These Commands accomplish smaller, more general tasks than the "Big Process" commands. They do everything from changing units to checking for certain errors. However they are likely not useful unless developing lisp, or doing similar tasks to the "Big Processes".
+			<div class="row">
+				<a class="qlink" href="#C:ATTDEF2TEXT">ATTDEF2TEXT</a>
+				<div class="columnright">Turn attdef entities into text objects</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:BATCHLISP">BATCHLISP</a>
+				<div class="columnright">Run a lisp script on several files</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:CHGUNITS">CHGUNITS</a>
+				<div class="columnright">Change units to inches</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:E2A">E2A</a>
+				<div class="columnright">Convert ellipses to arcs</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:ENAME">ENAME</a>
+				<div class="columnright">Return the entity name of a selected object</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:EPROP">EPROP</a>
+				<div class="columnright">Ouput the entity properties to the console</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:EXPORTROOMIDS">EXPORTROOMIDS</a>
+				<div class="columnright">Export all rooom ids to export3.csv</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:ISOM">ISOM</a>
+				<div class="columnright">Isolate the misc layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:PORTPROP">PORTPROP</a>
+				<div class="columnright">Add property portable label text to the layout</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:STRACE">STRACE</a>
+				<div class="columnright">Add "Site Plan Trace" xref</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:TYPES">TYPES</a>
+				<div class="columnright">Ouput the type of the object to the console</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:MER">MER</a>
+				<div class="columnright">Outline a selection of objects with a rectangle</div>
+			</div>
+
+			<div class="subheader">Useful</div>
+			These commands are utilities that are useful more generally, no matter what the current task is, although some are specific to monument ids.
+			<div class="row">
+				<a class="qlink" href="#C:CS">CS</a>
+				<div class="columnright">Close and save the drawing</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FAC_ID">FAC_ID</a>
+				<div class="columnright">Add facility id to all objects</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:IDS">IDS</a>
+				<div class="columnright">"short"cut for <a href="#C:FAC_ID">FAC_ID</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FC">FC</a>
+				<div class="columnright">Shortcut for <a href="#C:FIXCIRCLES">FIXCIRCLES</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FIXCIRCLES">FIXCIRCLES</a>
+				<div class="columnright">Turn circles into polylines</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:GETCONFIG">GETCONFIG</a>
+				<div class="columnright">Get the value stored in "H:\\Map 3d\\config.txt" (the preferred OSNAP setting)</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:MERGECAD">MERGECAD</a>
+				<div class="columnright">Import selected drawings as blocks on the current layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:MERGEFLOORS">MERGEFLOORS</a>
+				<div class="columnright">Import selected drawings as blocks, seperating each onto the appropriate layer </div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:MERGEXCAD">MERGEXCAD</a>
+				<div class="columnright">Import selected drawings exploded onto the current layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:MPO">MPO</a>
+				<div class="columnright">Shorcut for <a href="#C:MPOINT">MPOINT</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:MPOINT">MPOINT</a>
+				<div class="columnright">Place a point objects between two points</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:NEWFIELDS">NEWFIELDS</a>
+				<div class="columnright">Adds the facility number in site_id object data</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:REPLACECAD">REPLACECAD</a>
+				<div class="columnright">Replace each same-named drawing with the newly selected file</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:RFC">RFC</a>
+				<div class="columnright">Remove polyface meshes</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:RSNAP">RSNAP</a>
+				<div class="columnright">Reset OSNAP setting to whatever is in "H:\\Map 3d\\config.txt"</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:SETCONFIG">SETCONFIG</a>
+				<div class="columnright">Set "H:\\Map 3d\\config.txt" to the preferred OSNAP setting</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:UNDOALL">UNDOALL</a>
+				<div class="columnright">Reset a file back to the state when it was first opened</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:UPDATELAYERS">UPDATELAYERS</a>
+				<div class="columnright">Add layers to update to new standard</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:UPLAY">UPLAY</a>
+				<div class="columnright">Shortcut for <a href="#C:UPDATELAYERS">UPDATELAYERS</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:XREFFLOORS">XREFFLOORS</a>
+				<div class="columnright">Add all lower floors as an xref to the current drawing</div>
+			</div>
+
+			<div class="subheader">Not Useful</div>
+			These are very specific commands, likely not useful outside of their specific script implementations, and only listed here to provide a complete list of commands included in the library.
+			<div class="row">
+				<a class="qlink" href="#C:BOUNDFIXROOM">BOUNDFIXROOM</a>
+				<div class="columnright">find errors in a merged file with <a href="#findROOMerr">findROOMerr</a></div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:CATCH22">CATCH22</a>
+				<div class="columnright">Find all files that still contain the "22" layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:COLORLINES">COLORLINES</a>
+				<div class="columnright">Old debug/testing command</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#C:FIXALL">FIXALL</a>
+				<div class="columnright">Fix all ids in a selection set after they were all set to use facility number 0388 rather than the correct one</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="title"> Complete list of functions</div>
+			<script src="js/genfunc.js"></script>
+		</div>
+	</div>
+	<div id="indextitle">
+		<b>Index</b>
+		<table id="index">
+			<tr class = "indrow">
+				<th>Function</th>
+				<th>File</th>
+			</tr>
+		</table>
+	</div>
+	<div id="space"></div>
+</body>
+<footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/contents.js"></script>
+	<script type="text/javascript" src="js/scrolloffset.js"></script>
+	<script type="text/javascript" src="js/genjs.js"></script>
+</footer>
+</html>

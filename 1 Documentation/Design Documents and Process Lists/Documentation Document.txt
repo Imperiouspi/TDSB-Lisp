@@ -1,0 +1,37 @@
+Things List:
+- Auto gen documentation from comments?
+	- No, but yes auto gen list of functions from powershell
+- Auto gen tutorials from text documents?
+	- Yes: <embed src="test.txt">
+- Add process tutorials to documentation
+- Compile useful resources to get started?
+- Auto-gen: powershell or dynamic?
+- Finish index in documentation
+
+Framework:
+- Title
+- Getting started guide
+- Jump to tutorials (processes)
+- Jump to documentation
+- Tutorial
+	- Title
+	- Description
+	- Process
+	- Useful Checklist
+- Lisp
+	- Commands
+	- Useful functions
+	- Complete
+		- File
+			- Functions
+				- Name
+				- Description
+				- Arguments
+				- Example for important functions
+- Powershell
+	- Script
+		- Description
+		- Generate script button!
+			- enter folders or leave as default
+			- Click to create script, ready to copy and paste into powershell.
+		- Copy to clipboard button?

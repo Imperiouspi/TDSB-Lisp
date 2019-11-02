@@ -1,0 +1,5 @@
+Draw Roof Polylines
+1. Copy Gross area from floor plan into ####-R.dwg
+2. Set colour to yellow (for visibility), lock all other layers
+3. Trace Lines on "tdsb-smsc-building parapet lines". Outline should match Gross area, while inside lines should match the old roof. You may have to scale the old roof to the gross area. Make sure to set the units properly before scaling.
+4. Save as -Roof in parent folder

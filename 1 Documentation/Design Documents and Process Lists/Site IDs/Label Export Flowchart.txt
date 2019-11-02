@@ -1,0 +1,6 @@
+1. Select all net area polylines 
+2. Get text blocks
+3. For each: test for label inside
+4. Get text from label (see export in helper.lsp)
+5. Export to spreadsheet
+6. If no label, look for polyline and find closest label -> not priority

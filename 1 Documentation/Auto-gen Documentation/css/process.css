@@ -1,0 +1,72 @@
+#support {
+	display: block;
+}
+.lvl1 {
+	margin-left: 10px;
+	list-style-position: inside;
+	font-weight: normal;
+	line-height: 35px;
+}
+.lvl2 {
+	margin-left: 50px;
+	list-style-position: inside;
+}
+.lvl3 {
+	margin-left: 70px;
+	list-style-position: inside;
+}
+
+.procname {
+	font-weight: bold;
+	margin-top: 15px;
+	line-height: 25px;
+	margin-left: 0px;
+	box-shadow: 5px 5px 5px #888;
+    border-radius: 20px;
+}
+
+.prodesc {
+	font-weight: normal;
+}
+
+.trouble {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.layertable, .p-tr, .p-td {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+.functitle {
+	font-weight: bold;
+}
+
+.funcdesc {
+	font-weight: normal;
+}
+
+fieldset {
+	border: none;
+	margin-left: 50px;
+}
+
+#tabs {
+	width: 50%;
+	margin-left: 50px;
+	font: 15px "Open Sans", sans-serif;
+	border: none;
+}
+
+#button {
+	margin-left: 50px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+#alpha {
+	margin-left: 5px;
+	width: 150px;
+	height: 30px;
+}

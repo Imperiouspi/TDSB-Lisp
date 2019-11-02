@@ -1,0 +1,8 @@
+1. Move and Align all drawings, or sort into Problem folders
+2. Move into "edited by Noah"
+3. Run script in sort files.txt
+4. Mergecad drawings into floor_X files from sub folders
+5. remove drawings from subfolders back into "edited by Noah"
+6. Run script in "SortToRedraw.ps1", filters files that are in the redraw process (they can be ignored)
+7. Run script in "next folder.ps1", copies files that have the same name into their proper places in "Record Drawing Master Files"
+8. Uncomment Manual Move section in "next folder.ps1" to help manually check each remaining school in "edited by Noah"

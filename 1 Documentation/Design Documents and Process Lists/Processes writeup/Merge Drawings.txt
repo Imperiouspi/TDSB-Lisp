@@ -1,0 +1,2 @@
+Merge Drawings
+If you want to merge some drawings together, use either MERGECAD or MERGEFLOORS. MERGEFLOORS sorts the drawings into layers based on their file names. REPLACECAD will replace same-named drawings (only checks first six characters of the name (site id and floor number)). 

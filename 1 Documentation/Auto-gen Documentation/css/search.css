@@ -1,0 +1,105 @@
+#mainmain {
+	font-size: 40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-flow: column;
+	        flex-flow: column;
+	width: 95vw;
+	overflow-x: hidden;
+}
+
+#searchform {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-flow: column;
+	        flex-flow: column; 
+	-webkit-box-align: center; 
+	    -ms-flex-align: center; 
+	        align-items: center;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+}
+
+#mainsearch {
+	font-size: 40px;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	height: 90px;
+	width: 50%;
+	border-radius: 20px;
+	padding: 15px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	border: none;
+}
+
+#mainsearch:focus {
+	background-color: white;
+	border-color: blue;
+	-webkit-box-shadow: 0px 0px 20px #888;
+	        box-shadow: 0px 0px 20px #888;
+	-webkit-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+	width: 90%
+}
+
+#ui-id-1 {
+	font: 30px "Trebuchet MS", Helvetica, sans-serif;
+	list-style: none;
+}
+
+.ui-menu-item:hover {
+	-webkit-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+	background-color: rgb(141, 198, 239);
+	cursor: pointer;
+}
+
+.reflink {
+	text-decoration: none;
+}
+
+#filecontent {
+	margin-left: 10%;
+	border: solid black 2px;
+	border-radius: 10px;
+	padding: 5px;
+	padding-bottom: 10px;
+}
+
+h3 {
+	font-weight: normal;
+	font-size: 30px;
+	border: solid grey 1px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background: lightgrey;
+	margin-top: 10px;
+	width: 80vw;
+	padding-left: 5px;
+	margin-right: 5px;
+}
+
+.filepanel {
+	font-size: 20px;
+	border: solid grey 1px;
+	border-top: 0px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding-left: 5px;
+	margin-right: 5px;
+	width: 80vw;
+}

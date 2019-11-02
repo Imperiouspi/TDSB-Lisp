@@ -1,0 +1,7 @@
+Workspace setup
+1. AutoCAD
+	a) Options>Files>Support File Search Path, add the folder that contains acaddoc.lsp.
+	b) To load new lisp files, drag and drop onto the window or use the LOAD command, or add into acaddoc.lsp as another (load "filename")
+2. Sublime Text
+	a) An installation of sublime text 3 is included in this folder. It comes preinstalled with a few packages I found useful (explore them yourself).
+	b) It comes pre-configured with a keyboard shortcut to generate documentation (alt+d), and run the currently edited powershell script (alt+r)

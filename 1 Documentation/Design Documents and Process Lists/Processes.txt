@@ -1,0 +1,10 @@
+1. Roof Sections Labelling (label)
+3. Site Monument Numbers (smn)
+4. Layouts
+7. Draw Roof Polylines
+9. Site plan alignment
+5. Floor Alignment (begin?)
+9. Floorplan cleanup (pm/rfc)
+2. Room IDs (exr)
+6. Merge Drawings (mergecad)
+8. Workspace Setup

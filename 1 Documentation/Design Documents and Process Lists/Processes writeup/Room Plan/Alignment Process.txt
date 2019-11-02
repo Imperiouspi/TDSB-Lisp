@@ -1,0 +1,14 @@
+1. Move and Align all drawings
+	a) run FIXUNITS
+	b) set coordinate systems in both the drawing and the plugin.
+	b) open ESRI image
+	c) if upper floor, xref lower floor in
+	d) align to lower floor or ESRI image.
+	Troubleshooting: if a lower floor imports in the wrong location, and the coordinate system AND units are set correctly in both, then I don't know what's wrong, and put the school into the "Problems" folder.
+2. Move into "edited by Noah" (if there was no problem)
+3. Run script in "sort files.ps1"
+4. Mergecad drawings into floor_X files from sub folders
+5. remove drawings from subfolders back into "edited by Noah"
+6. Run script in "SortToRedraw.ps1", filters files that are in the redraw process (they can be ignored)
+7. Run script in "next folder.ps1", copies files that have the same name into their proper places in "Record Drawing Master Files"
+8. Uncomment Manual Move section in "next folder.ps1" to help manually check each remaining school in "edited by Noah"

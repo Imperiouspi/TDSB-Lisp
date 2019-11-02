@@ -1,0 +1,290 @@
+vlide
+(setvar "sdi" 1)
+(setvar "filedia" 0)
+(setq copy nil)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304\\0304-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304\\0304-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304 sdf\\0304-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304 sdf\\0304-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304\\0304-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304\\0304-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304 sdf\\0304-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0304 - Gordon A Brown MS (no fsp)\\0304 sdf\\0304-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0306 - Leaside HS\\0306\\0306-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0306 - Leaside HS\\0306\\0306-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0306 - Leaside HS\\0306 sdf\\0306-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0306 - Leaside HS\\0306 sdf\\0306-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310\\0310-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310\\0310-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310 sdf\\0310-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310 sdf\\0310-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310\\0310-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310\\0310-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310 sdf\\0310-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310 sdf\\0310-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310\\0310-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310\\0310-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310 sdf\\0310-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0310 - Northlea EMS\\0310 sdf\\0310-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312\\0312-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312\\0312-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312 sdf\\0312-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312 sdf\\0312-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312\\0312-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312\\0312-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312 sdf\\0312-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0312 - Parkside ES\\0312 sdf\\0312-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316\\0316-3.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316\\0316-3.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316 sdf\\0316-3.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316 sdf\\0316-3.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316\\0316-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316\\0316-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316 sdf\\0316-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316 sdf\\0316-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316\\0316-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316\\0316-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316 sdf\\0316-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0316 - R H McGregor PS\\0316 sdf\\0316-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324\\0324-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324\\0324-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324 sdf\\0324-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324 sdf\\0324-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324\\0324-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324\\0324-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324 sdf\\0324-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0324 - Thorncliff PS\\0324 sdf\\0324-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326\\0326-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326\\0326-1.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326 sdf\\0326-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326 sdf\\0326-1.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326\\0326-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326\\0326-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326 sdf\\0326-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326 sdf\\0326-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326\\0326-3.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326\\0326-3.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326 sdf\\0326-3.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0326 - Valley Park MS\\0326 sdf\\0326-3.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328\\0328-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328\\0328-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328 sdf\\0328-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328 sdf\\0328-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328\\0328-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328\\0328-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328 sdf\\0328-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0328 - Victoria Park ES\\0328 sdf\\0328-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0329 - David and Mary Thomson CI (status unknown)\\0329\\0329-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0329 - David and Mary Thomson CI (status unknown)\\0329\\0329-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0329 - David and Mary Thomson CI (status unknown)\\0329 sdf\\0329-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0329 - David and Mary Thomson CI (status unknown)\\0329 sdf\\0329-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331\\0331-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331\\0331-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331 sdf\\0331-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331 sdf\\0331-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331\\0331-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331\\0331-1.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331 sdf\\0331-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0331 - David Lewis PS\\0331 sdf\\0331-1.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332\\0332-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332\\0332-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332 sdf\\0332-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332 sdf\\0332-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332\\0332-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332\\0332-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332 sdf\\0332-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0332 - William Burgess\\0332 sdf\\0332-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0336 - Beaumonde Heights JMS\\0336\\0336-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0336 - Beaumonde Heights JMS\\0336\\0336-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0336 - Beaumonde Heights JMS\\0336 sdf\\0336-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0336 - Beaumonde Heights JMS\\0336 sdf\\0336-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0339 - Dr. Norman Bathune\\0339\\0339-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0339 - Dr. Norman Bathune\\0339\\0339-PH.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0339 - Dr. Norman Bathune\\0339 sdf\\0339-PH.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0339 - Dr. Norman Bathune\\0339 sdf\\0339-PH.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354\\0354-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354\\0354-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354 sdf\\0354-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354 sdf\\0354-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354\\0354-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354\\0354-1.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354 sdf\\0354-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0354 - David Hornell JS\\0354 sdf\\0354-1.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365\\0365-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365\\0365-1.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365 sdf\\0365-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365 sdf\\0365-1.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365\\0365-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365\\0365-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365 sdf\\0365-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0365 - George P Mackie JPS (redraw karlha)\\0365 sdf\\0365-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0366 - Etobicoke CI\\0366\\0366-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0366 - Etobicoke CI\\0366\\0366-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0366 - Etobicoke CI\\0366 sdf\\0366-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0366 - Etobicoke CI\\0366 sdf\\0366-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0368 - Etobicoke School of Arts\\0368\\0368-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0368 - Etobicoke School of Arts\\0368\\0368-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0368 - Etobicoke School of Arts\\0368 sdf\\0368-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0368 - Etobicoke School of Arts\\0368 sdf\\0368-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0370 - George R Gauld JS\\0370\\0370-2M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0370 - George R Gauld JS\\0370\\0370-2M.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0370 - George R Gauld JS\\0370 sdf\\0370-2M.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0370 - George R Gauld JS\\0370 sdf\\0370-2M.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389\\0389-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389\\0389-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389 sdf\\0389-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389 sdf\\0389-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389\\0389-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389\\0389-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389 sdf\\0389-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0389 - Heritage Park PS (redraw emily)\\0389 sdf\\0389-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393\\0393-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393\\0393-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393 sdf\\0393-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393 sdf\\0393-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393\\0393-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393\\0393-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393 sdf\\0393-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0393 - Highcastle PS (redraw emily)\\0393 sdf\\0393-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395\\0395-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395\\0395-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395 sdf\\0395-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395 sdf\\0395-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395\\0395-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395\\0395-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395 sdf\\0395-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0395 - Highland Creek PS\\0395 sdf\\0395-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0404 - Martingrove CI\\0404\\0404-B.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0404 - Martingrove CI\\0404\\0404-B.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0404 - Martingrove CI\\0404 sdf\\0404-B.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0404 - Martingrove CI\\0404 sdf\\0404-B.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0409 - J B Tyrrell SPS\\0409\\0409-1M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0409 - J B Tyrrell SPS\\0409\\0409-1M.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0409 - J B Tyrrell SPS\\0409 sdf\\0409-1M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0409 - J B Tyrrell SPS\\0409 sdf\\0409-1M.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0414 - North Albion CI\\0414\\0414-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0414 - North Albion CI\\0414\\0414-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0414 - North Albion CI\\0414 sdf\\0414-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0414 - North Albion CI\\0414 sdf\\0414-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417\\0417-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417\\0417-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417 sdf\\0417-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417 sdf\\0417-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417\\0417-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417\\0417-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417 sdf\\0417-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417 sdf\\0417-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417\\0417-2M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417\\0417-2M.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417 sdf\\0417-2M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0417 - John A Leslie PS\\0417 sdf\\0417-2M.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421\\0421-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421\\0421-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421 sdf\\0421-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421 sdf\\0421-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421\\0421-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421\\0421-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421 sdf\\0421-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0421 - John G Diefenbaker PS\\0421 sdf\\0421-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0423 - John McCrae PS\\0423\\0423-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0423 - John McCrae PS\\0423\\0423-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0423 - John McCrae PS\\0423 sdf\\0423-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0423 - John McCrae PS\\0423 sdf\\0423-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0424 - Rivercrest JS (redraw douglas)\\0424\\0424-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0424 - Rivercrest JS (redraw douglas)\\0424\\0424-1.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0424 - Rivercrest JS (redraw douglas)\\0424 sdf\\0424-1.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0424 - Rivercrest JS (redraw douglas)\\0424 sdf\\0424-1.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432\\0432-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432\\0432-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432 sdf\\0432-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432 sdf\\0432-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432\\0432-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432\\0432-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432 sdf\\0432-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0432 - Second Street JMS\\0432 sdf\\0432-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0433 - L'Amoreaux CI\\0433\\0433-B.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0433 - L'Amoreaux CI\\0433\\0433-B.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0433 - L'Amoreaux CI\\0433 sdf\\0433-B.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0433 - L'Amoreaux CI\\0433 sdf\\0433-B.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438\\0438-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438\\0438-2.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438 sdf\\0438-2.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438 sdf\\0438-2.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438\\0438-2M.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438\\0438-2M.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438 sdf\\0438-2M.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438 sdf\\0438-2M.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438\\0438-1M.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438\\0438-1M.DWG"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438 sdf\\0438-1M.DWG")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0438 - Silverthorn CI\\0438 sdf\\0438-1M.DWG"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462\\0462-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462\\0462-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462 sdf\\0462-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462 sdf\\0462-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462\\0462-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462\\0462-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462 sdf\\0462-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0462 - West Humber CI\\0462 sdf\\0462-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465\\0465-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465\\0465-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465 sdf\\0465-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465 sdf\\0465-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465\\0465-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465\\0465-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465 sdf\\0465-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0465 - Military Trail PS\\0465 sdf\\0465-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0470 - Agincourt CI\\0470\\0470-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0470 - Agincourt CI\\0470\\0470-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0470 - Agincourt CI\\0470 sdf\\0470-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0470 - Agincourt CI\\0470 sdf\\0470-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476\\0476-PH.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0476 - Albert Campbell CI\\0476 sdf\\0476-PH.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0489 - Port Royal PS (redraw david)\\0489\\0489-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0489 - Port Royal PS (redraw david)\\0489\\0489-PH.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0489 - Port Royal PS (redraw david)\\0489 sdf\\0489-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0489 - Port Royal PS (redraw david)\\0489 sdf\\0489-PH.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493\\0493-3.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493\\0493-3.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493 sdf\\0493-3.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493 sdf\\0493-3.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493\\0493-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493\\0493-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493 sdf\\0493-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0493 - R H King Academy\\0493 sdf\\0493-2.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494\\0494-1M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494\\0494-1M.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494 sdf\\0494-1M.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494 sdf\\0494-1M.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494\\0494-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494\\0494-B.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494 sdf\\0494-B.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0494 - Bendale BTI (updating katerina new school)\\0494 sdf\\0494-B.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497\\0497-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497\\0497-PH.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497 sdf\\0497-PH.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497 sdf\\0497-PH.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497\\0497-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497\\0497-1.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497 sdf\\0497-1.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497 sdf\\0497-1.dwg"))
+(c:pasteaccess)
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497\\0497-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497\\0497-2.dwg"))
+COPYACCESS
+(if(> (getvar "dbmod") 0)(command ".open" "Y" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497 sdf\\0497-2.dwg")(command ".open" "\\\\TDSBSHARES\\facilities_silo\\Facility-Services\\Standards-Comp-Envir\\Staff\\Record Drawing Master Files\\0497 - Robert Service SPS\\0497 sdf\\0497-2.dwg"))
+(c:pasteaccess)
+(setvar "filedia" 1)
+(setvar "sdi" 0)

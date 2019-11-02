@@ -1,0 +1,17 @@
+STEPS
+0. Adeattachdata
+- super easy I assume
+1. Create sections
+- Done by hand already
+2. Label Clockwise
+- Loop through items on layer
+- label from hand drawing
+- easy select of number and letter
+3. Correlate to old numbers
+4. Make note of differences
+5. Colour sections
+- auto based on labels
+
+Integration steps
+- keyboard shortcut to launch
+- Select Layer/feature type

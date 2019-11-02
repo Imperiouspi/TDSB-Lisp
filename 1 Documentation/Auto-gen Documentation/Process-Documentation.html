@@ -1,0 +1,349 @@
+<DOCTYPE !html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<link rel="stylesheet" href="css/Documentation.css">
+	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<title>Monument ID Lisp Documentation</title>
+</head>
+<body id="procbody">
+	<button onclick="topFunction()" id="topbtn" title="Go to top">Top</button>
+	<ul id="titlebar">
+		<li id="Logo" class="menuitem menuBTN"><a class="menulink" href="Documentation.html">Noah Cassidy 2019 Code Database</a></li>
+		<li id="Tutorials" class="menuitem menuBTN current"><a class="menulink" href="Process-Documentation.html">Processes</a></li>
+		<li id="Lisp" class="menuitem menuBTN"><a class="menulink" href="Lisp-Documentation.html">Lisp Code Reference</a></li>
+		<li id="PS" class="menuitem menuBTN"><a class="menulink" href="PS-Documentation.html">Powershell Scripts</a></li>
+	</ul>
+	<div id="sideclr"><div id="sidebar">
+		<div id = "sbarheader"><b>Table of Contents</b></div>
+	</div></div>
+	<div id="main">
+		<div class="par">
+			<div id="Description">Tutorials to complete various tasks. The key to most of them: FOLLOW THE PROMPTS!</div>
+		</div>
+		<div id="Workspace setup" class="par procname">Workspace setup
+			<ol class="lvl1">
+				<li>AutoCAD
+					<ol type="a" class="lvl2">
+						<li>Put the "Map 3d" folder in your H:
+						<li>(1) Options (or the OPTIONS command) > (2) Files > Support File Search Path, add the folder "2 Code Library\lisp" (3) to this list. "2 Code Library\lisp\Original Site Plan Lisp" no longer is mandatory to get everything to work, although it is still documented.
+							<div class="imgwrap">
+								<img class="srcedimg" src="H:\Map 3d\1 Documentation\Auto-gen Documentation\support_process.png">
+							</div>
+						</li>
+						<li>You can ignore the following lisp files still included in the top folder:
+							<ul class="lvl3">
+								<li>exportrooms(old)</li>
+								<li>findvertex</li>
+								<li>testpoint</li>
+								<li>testssorder</li>
+								<li>catch22</li>
+								<li>cmd</li>
+							</ul>
+						</li>
+						<li>Now any new drawing will open with all the lisp correctly loaded, so if a drawing is currently open, close and reopen it</li>
+						<li>To load new lisp files, drag and drop onto the window or use the LOAD command, or add into acaddoc.lsp as another (load "filename") statement</li>
+						<li>To add a custom menu, run the CUI command and add LISP.cuix to the list of partial customization files
+							<div class="imgwrap">
+								<img class="srcedimg" src="H:\Map 3d\1 Documentation\Auto-gen Documentation\partial_cuix.png">
+							</div>
+						</li>
+					</ol>
+				</li>
+				<li>Sublime Text
+					<ol type="a" class="lvl2">
+						<li>An installation of <a href="https://www.sublimetext.com/">Sublime Text 3</a> is included in this folder. It comes preinstalled with a few packages I found useful (explore them yourself)</li>
+						<li>It comes pre-configured with a keyboard shortcut to generate documentation (alt+d), and run the current powershell script (alt+r)</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+		<div id="Site Plan Alignment" class="par procname">Site Plan Alignment
+			<ol class="lvl1">
+				<li>Run <a href="Lisp-Documentation.html#C:PREPALIGN">PREPALIGN</a>. Does several small tasks to prepare the drawing, see documentation</li>
+				<li>Run <a href="Lisp-Documentation.html#C:STRACE">STRACE</a>. Adds "SITE PLAN TRACE.dwg" to the drawing</li>
+				<li>Move and Rotate Site Plan into place over the SITE PLAN TRACE image. Use the index at the bottom to find where it is</li>
+				<li>Run <a href="Lisp-Documentation.html#C:STRACE">STRACE</a> again to remove SITE PLAN TRACE</li>
+			</ol>
+		</div>
+		<div id="Site Monument Number Labelling" class="par procname">Site Monument Number Labelling
+			<div class="prodesc">Checklist document: Site Plan Checklist.xlsm</div>
+			<ol class="lvl1">
+				<li>Make sure you read the prompts, they'll tell you what to do most of the time. Note: this erases all monument ids at the beginning, so if you cancel the SMN command you'll have to run it all over again. Instead, complete the command and use LABELLAYER to redo the messed up layer.</li>
+				<li>Landscape and parking
+					<ol type="a" class="lvl2">
+						<li>Go to the model tab and switch to the "tdsb-smsc-landscape" layer</li>
+						<li>Using the BO command, add landscape polylines wherever there is lawn or trees. It is useful to add the ESRI map at this point</li>
+						<li>Switch to the "tdsb-smsc-parking points" layer, and add parking points, if any are missing. Use the midpoint (<a href="Lisp-Documentation.html#C:MPO">MPO</a>) command to add points midway between parking lines</li>
+					</ol>
+				<li>First Check for common errors. Most of these will no longer be relevant, but check anyway. Missing features can be seen on the ESRI background map.
+					<ol type="a" class="lvl2">
+						<li>Ensure no accessible parking spot labels are missing</li>
+						<li>Check for missing parking hatch. Add and explode ANSI 31, usually size 6 or 8</li>
+						<li>Add missing soccer posts</li>
+						<li>Run <a href="Lisp-Documentation.html#C:FIXCIRCLES">FIXCIRCLES</a> (or <a href="Lisp-Documentation.html#C:FC">FC</a>) to remove circles and replace them with polylines</li>
+						<li>Replace portables and basketball nets with the new block (should already be done)</li>
+						<li>Add any missing fence gates</li>
+						<li>Add missing solar panels</li>
+						<li>Explode any unexploded blocks</li>
+					</ol>
+				</li>
+				<li>Monument Numbers
+					<ol type="a" class="lvl2">
+						<li>Sometimes, soccer fields and baseball diamonds are not clearly defined. However, each pair of goal posts needs a field surrounding it. Add these "hidden" soccer fields (on "tdsb-smsc-playground soccerfield 2") and baseball diamonds (on "tdsb-smsc-playground baseball diamond 2"). Start with a rectangle and use BO to keep them from overlapping existing objects</li>
+						<li>Run the site monument numbers command, <a href="Lisp-Documentation.html#C:SMN">SMN</a>. It will automatically label some objects. Others will require manual input, like drawing a line through the objects in the order they should be labelled. Documentation on the tasks for each layer follows this section</li>
+						<div class="trouble"><b>Troubleshooting:</b> <a href="Lisp-Documentation.html#C:SMN">SMN</a> will sometimes fail. When that happens, run <a href="Lisp-Documentation.html#C:FIXERR">FIXERR</a>. This will turn all broken polylines grey and will output the number that it changed. See <a href="Lisp-Documentation.html#C:FIXERR">FIXERR</a> documentation for more.</div>
+					</ol>
+				</li>
+				<li>Table of layers and functions.<br>
+					<div id="button">
+						Sort layers as:
+						<button id="alpha" onclick="toggletable()">Order of Operation</button>
+					</div>
+					<table class="lvl2 layertable" id="alphabetical">
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-accessibility green pg</td><td class= "p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-building canopy</td><td class= "p-td"><a href="#helper2">helper2</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-building outline</td><td class= "p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-building parapet lines</td><td class= "p-td"><a href="#helper2">helper2</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-fence</td><td class= "p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-gate</td><td class= "p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-landscape</td><td class= "p-td"><a href="#id_forest">id_forest</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-misc</td><td class= "p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-parking points</td><td class= "p-td"><a href="#id_by_line_child_parking">id_by_line_child_parking</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground baseball diamond</td><td class= "p-td"><a href="#id_field">id_field</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground baseball fence</td><td class= "p-td"><a href="#id_layer_child">id_layer_child</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground basketball</td><td class= "p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground funnelball</td><td class= "p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground outline</td><td class= "p-td"><a href="#id_by_line">id_by_line</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground playscape</td><td class= "p-td"><a href="#id_layer_child">id_layer_child</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground soccerfield</td><td class= "p-td"><a href="#id_field">id_field</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground soccerpost</td><td class= "p-td"><a href="#id_soccer_posts">id_soccer_posts</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-police safety plan</td><td class= "p-td"><a href="#label_entrance">label_entrance</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-property line</td><td class= "p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-road</td><td class= "p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-walkway</td><td class= "p-td"><a href="#id_by_line">id_by_line</a></td></tr>
+					</table>
+					<table class="lvl2 layertable" id="operation">
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-building outline</td><td class="p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-property line</td><td class="p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-building parapet lines</td><td class="p-td"><a href="#helper2">helper2</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-building canopy</td><td class="p-td"><a href="#nil">helper2</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-road</td><td class="p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-accessibility green pg</td><td class="p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-misc</td><td class="p-td"><a href="#id_by_hand">id_by_hand</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-parking points</td><td class="p-td"><a href="#id_by_line_child_parking">id_by_line_child_parking</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-fence</td><td class="p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-gate</td><td class="p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground basketball</td><td class="p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground funnelball</td><td class="p-td"><a href="#id_layer">id_layer</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground baseball diamond</td><td class="p-td"><a href="#id_field">id_field</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground baseball fence</td><td class="p-td"><a href="#id_layer_child">id_layer_child</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground soccerfield</td><td class="p-td"><a href="#id_field">id_field</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground soccerpost</td><td class="p-td"><a href="#id_soccer_posts">id_soccer_posts</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-landscape</td><td class="p-td"><a href="#id_forest">id_forest</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-walkway</td><td class="p-td"><a href="#id_by_line">id_by_line</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground outline</td><td class="p-td"><a href="#id_by_line">id_by_line</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-playground playscape</td><td class="p-td"><a href="#id_layer_child">id_layer_child</a></td></tr>
+						<tr class="p-tr"><td class="p-td">tdsb-smsc-police safety plan</td><td class="p-td"><a href="#label_entrance">label_entrance</a></td></tr>
+					</table>
+					<ol type="a" class="lvl2">
+						<li id="id_by_hand" class="functitle">id_by_hand
+							<div class="funcdesc">The user will be asked to id individually, selecting the objects in order. The user may be asked to choose which label applies to each object before selecting the object. If there are more objects on the layer than should be labelled, enter "[D]one" when satisfied, to continue to the next layer.</div>
+						</li>
+						<li id="helper2" class="functitle">helper2
+							<div class="funcdesc">See the next section, "Roof Plan", for documentation. Disabled in SMN, run through the ROOF command.</div>
+						</li>
+						<li id="id_by_line_child_parking" class="functitle">id_by_line_child_parking
+							<div class="funcdesc">Operation is identical to id_by_line, but does stuff different behind the scenes.</div>
+						</li>
+						<li id="id_layer" class="functitle">id_layer
+							<div class="funcdesc">This will be done automatically.</div>
+						</li>
+						<li id="id_layer_child" class="functitle">id_layer_child
+							<div class="funcdesc">This will be done automatically.</div>
+						</li>
+						<li id="id_field" class="functitle">id_field
+							<div class="funcdesc">This only applies to soccer fields and baseball diamonds. They will be labelled automatically by distance, and it will also label the "soccerfield 2" and "baseball diamond 2" layers.</div>
+						</li>
+						<li id="id_soccer_posts" class="functitle">id_soccer_posts
+							<div class="funcdesc">This will be done automatically.</div>
+						</li>
+						<li id="id_forest" class="functitle">id_forest
+							<div class="funcdesc">This will label the landscape layer. The command will ask if there are forested areas. If there are, it will go through each area individually to ask if it's a forest. If there are none, it will do its work automatically.</div>
+						</li>
+						<li id="id_by_line" class="functitle">id_by_line
+							<div class="funcdesc">This will ask the user to enter P to draw a path or S to skip this line. This will usually delete whatever line was selected as a path, so be careful. The path defines the order that the objects will be labelled. Each point is assigned to the closest section of path beside it, and</div>
+						</li>
+						<li id="id_layer_child" class="functitle">id_layer_child
+							<div class="funcdesc">This works the same as id_by_line, but will only labels within polygons.</div>
+						</li>
+						<li id="label_entrance" class="functitle">label_entrance
+							<div class="funcdesc">This works automatically, but has trouble functioning. The labels are on different elevations when added to the drawing. This causes trouble AND the labels are offset from their proper positions when it's fixed. This is disabled for now.</div>
+						</li>
+					</ol>
+				</li>
+				<li id="RoofPlan">Roof Plan
+					<ol type="a" class="lvl2">
+						<li>Find printed drawing of the site plan. This drawing should already have coloured lines to indicate in which year each roof section was added</li>
+						<li>Run <a href="Lisp-Documentation.html#C:ROOF">ROOF</a> command</li>
+							<li>Click "Select Objects". This will request a series of selections. Each selection will be coloured a new colour, and represents each new addition to the roof. If anything is selected by accident, cancel the command and run <a href="Lisp-Documentation.html#C:ROOF">ROOF</a> again. This will restart the process and nothing will be harmed. After all known sections have been coloured, press return with nothing selected, then select all sections where the year built is unknown (They will be labelled as section "X")</li>
+							<li>Click "Begin Labelling". Select the polylines in section A clockise, starting at the main entrance (see the highlighted drawing). This will add text in the center of the object, and will add the correct monument id to the roof section. "u" will undo, "b" will go back to the previous label, and "return" will move to the next one. Follow the on screen instructions to label section A, B, C and so on. Cancelling the command at this point is ok too. If <a href="Lisp-Documentation.html#C:ROOF">ROOF</a> is run again, the colours will stay and you can start here, at f. (all old labels will be erased). </li>
+							<li>Summary of other buttons: Export labels is no longer useful. Options is unused in the end. Fix label brings up a small dialogue. Enter the label to be fixed. It will remove that label if it is somewhere else in the drawing, but WILL NOT CHANGE the object data of the section it was labelling. You can then select the new section to attach the data to. Make sure you also re-label the original polyline too!</li>
+							<div class="trouble"><b>Troubleshooting:</b> Sometimes the label text will not be added. This is normal, don't worry about it. If you really want the text, inspect the polyline for why the REGION command wouldn't work properly (self-intersection, not closed, etc).</div>
+						<li>Record old Roof IDs in "B08 Drawings\ArcGIS\RoofHub.xlsm". Using the physical drawing, fill out the table with the old and new roof ids for each section
+							<ul class="lvl3">
+								<li>Record new ids in "id number" column. "RoofMonNum" will be automatically filled. Write it in the same line as the corresponding old id, already recorded in the "Roof Section" column</li>
+								<li>If multiple NEW sections correspond to one OLD section, write the same new id in both rows</li>
+								<li>If multiple OLD ids correspond to one NEW one, duplicate the old id line add the corresponding new id to both lines</li>
+								<li>If no OLD section corresponds to the NEW one, add a new line with the correct site id and school name</li>
+								<li>If no NEW section coressponds to an OLD one, leave the line blank</li>
+							</ul>
+						</li>
+						<li>Check for polyface mesh/2d polylines. Run <a href="Lisp-Documentation.html#C:RFC">RFC</a> to remove them. These won't be labelled properly in the next few steps, so replace them with normal polylines. An ouput of "nil" from RFC means there were none, and you can move on.</li>
+					</ol>
+				</li>
+				<li>Label both 8.5x11 and 11x17 layouts
+					<ol type="a" class="lvl2">
+						<li>Find the original site plan layout pdf in the Master folder, and open it for reference</li>
+						<li>Turn on all layers</li>
+						<li>Delete "raster image", "site", and "facility footprint" layers (which may not exist)</li>
+						<li>Turn off the "labeltext..." layer</li>
+						<li>Run command <a href="Lisp-Documentation.html#C:UPDATELAYERS">UPDATELAYERS</a>/<a href="Lisp-Documentation.html#C:UPLAY">UPLAY</a></li>
+						<li>8.5x11. It should already contain the title block</li>
+							<ol type="i" class="lvl3">
+								<li>Unlock display, move to model space in the viewport, </li>
+								<li>Zoom so you can see the school</li>
+								<li>Type DVIEW, ALL, return, TWIST, to rotate the view of the school</li>
+								<li>Rotate school into place, rotating to make the school vertical/horizontal, to match the original site plan</li>
+								<li>Pan and zoom the school to maximize its size in the viewport. It's ok to cut off roads, but make sure the entire property line is visible. If in doubt, mirror the original site plan</li>
+								<li>Run or click "insert labels" button to add property line and portable labels to the legend
+									<div class="imgwrap">
+										<img class="srcedimg" src="insert_labels.png">
+									</div>
+								</li>
+								<li>Label all objects</li>
+								<li>Copy all objects to clipboard, using "ctrl+c" or COPYCLIP. <i>Not</i> the COPY command</li>
+								<li>Fill out the title block, and rotate the north arrow to the correct orientation. The angle is the same as the angle the viewport was rotated with dview. Running dview>twist again will show you the angle</li>
+							</ol>
+						<li>11x17</li>
+							<ol type="i" class="lvl3">
+								<li>Site plan checklist has some different information for a more manual way of copying to 11x17, ignore that unless you enjoy inefficiency</li>
+								<li>Run <a href="Lisp-Documentation.html#C:COPYADDR">COPYADDR</a>. It will copy the title block contents automatically into the 11x17 layout</li>
+								<li>Paste the labels into the 11x17 layout, beside the layout somewhere (don't put them on top yet)</li>
+								<li>Move, zoom, and rotate (with DVIEW) the 11x17 layout into place, just like with the 8.5x11 layout</li>
+								<li>Select all the pasted labels and run <a href="Lisp-Documentation.html#C:SCNMOVE">SCNMOVE</a>, which will scale the labels to match the 11x17 zoom level. This will not scale the labels, only the space between them, as they are a standard size</li>
+								<li>Select all the newly scaled labels and move into place on top of the viewport</li>
+							</ol>
+						<li>Record the angle in "B08 Drawings\ArcGIS\Orientation.xlsx"</li>
+					</ol>
+				</li>
+				<li>Portables
+					<ol type="a" class="lvl2">
+						<li>Add portable IDs by hand. Or fix my script to do it for you, but it's a bit of a pain and probably unreliable</li>
+					</ol>
+				</li>
+				<li>Final check, then move the drawing to the completed folder. A note about folder structure: each folder contains a sub folder for the next step. I found it most efficient to do step 1 for each drawing, move them to the next subfolder, and then do step 2, but it's up to you</li>
+			</ol>
+		</div>
+		<div id="Floor Plan Cleanup" class="par procname">Floor Plan Cleanup
+			<ol class="lvl1">	
+				<li>Run <a href="Lisp-Documentation.html#C:PREPMERGE">PREPMERGE</a> (or <a href="Lisp-Documentation.html#C:PM">PM</a>)</li>
+				<li>Run <a href="Lisp-Documentation.html#C:RFC">RFC</a>, which removes polyface meshes and 2d polylines. An ouput of "nil" means there were none, and you can move on.</li>
+				<li>Should already be cleaned if coming from a redraw, and I already batch cleaned the rest of them</li>
+			</ol>
+		</div>
+		<div id="Room IDs" class="par procname">Room IDs
+			<ol class="lvl1">
+				<li>Run aexr. This should automatically label the room and everything</li>
+				<div class="trouble"><b>Troubleshooting:</b> it may find polyface meshes. If this is the case it will warn you and ask you to check what it's done. The script tries to replace polyface meshes with polylines, but the vertices are NEVER in the right order. It may be wise to check for them before you run the lisp.</div>
+				<li>Move and Align all drawings
+					<ol type="a" class="lvl2">
+						<li>Run <a href="Lisp-Documentation.html#C:CHGUNITS">CHGUNITS</a></li>
+						<li>Set coordinate systems in both the drawing and the plugin</li>
+						<li>Open ESRI image</li>
+						<li>If not first floor, xref any lower floor into the drawing</li>
+						<li>Align to lower floor or ESRI image</li>
+					</ol>
+					<div class="trouble"><b>Troubleshooting:</b> if a lower floor imports in the wrong location, and the coordinate system AND units are set correctly in both, then I don't know what's wrong, and put the school into the "Problems" folder.</div>
+				</li>
+				<li>Move into "edited by Noah" (if there was no problem)</li>
+				<li>Run script in "sort files.ps1"</li>
+				<li>Mergecad drawings into floor_X files from sub folders</li>
+				<li>Remove drawings from subfolders back into "edited by Noah"</li>
+				<li>Run script in "SortToRedraw.ps1", filters files that are in the redraw process (they can be ignored)</li>
+				<li>Run script in "next folder.ps1", copies files that have the same name into their proper places in "Record Drawing Master Files"</li>
+				<li>Uncomment Manual Move section in "next folder.ps1" to help manually check each remaining school in "edited by Noah"</li>
+			</ol>
+		</div>
+		<div id="Merge Drawings" class="par procname">Merge Drawings
+			<div class="prodesc">If you want to merge some drawings together, use either <a href="Lisp-Documentation.html#C:MERGECAD">MERGECAD</a> or <a href="Lisp-Documentation.html#C:MERGEFLOORS">MERGEFLOORS</a>. <a href="Lisp-Documentation.html#C:MERGEFLOORS">MERGEFLOORS</a> sorts the drawings into layers based on their file names. <a href="Lisp-Documentation.html#C:REPLACECAD">REPLACECAD</a> will replace same-named drawings (only checks first six characters of the name (site id and floor number)).</div>
+		</div>
+		<div id="Accessibility Geocoding" class="par procname">Accessibility Geocoding
+			<div class="prodesc">
+				Automatically align accessibility floor plan to the sdf floor plan. Requires lots of manual input to ensure quality alignment.
+			</div>
+		<ol class="lvl1">
+			<li>Run "nextfolder_noreplace.ps1". This will open two folders on the second monitor, and will advance through each folder in the master folder, opening the drawings you need
+				<div class="imgwrap">
+					<img class="srcedimg" src="Accessibility Window Layout.png" alt="Window layout">
+				</div>
+				<div class="caption">
+					Suggested window layout. 1 AutoCAD Map 3d; 2 Accessibility drawing folder; 3 Powershell console; 4 SDF folder for current schoool (automatically opened); 5 Floor plans for current school (automatically opened)
+				</div>
+			
+			</li>
+			<li>Open the sdf and floor plan of the first floor</li>
+			<li>Run <a href="Lisp-Documentation.html#C:COPYACCESS">COPYACCESS</a> on the floor plan document</li>
+			<li>Close the floor plan document without saving, just in case</li>
+			<li>Run <a href="Lisp-Documentation.html#C:PASTEACCESS">PASTEACCESS</a> on the sdf</li>
+			<li>It should automatically align and save as a new accessibility drawing in Record Drawing Master Files\\0000 sdf\\Accessibility</li>
+		</ol>
+		<div class="trouble"><b>Troubleshooting:</b>AutoCAD may freeze up and not work with certain drawings. Don't bother troubleshooting, just give up and do it by hand.</div>
+		</div>
+		<div id="Documentation" class="par procname">Documentation
+			<div class="prodesc">To add your own documentation to other files</div>
+			<ol class="lvl1">
+				<li>Lisp
+					<ol type="a" class="lvl2">
+						<li>You can describe the .lsp file at the top of the code. Anything after the first blank line will not be included in this general description. If the word "ignore" is anywhere in the description, the file will be ignored</li>
+						<li>For each function, use these headers, each on their own line:
+							<ul class="lvl3">
+								<li>Description:</li>
+								<li>Arguments:</li>
+								<li>Returns:</li>
+							</ul>
+						</li>
+						<li>"Description:" can be followed by any number of lines, and is the only mandatory section for documentation to appear</li>
+						<li>"Arguments:" should be followed by each argument on a new line, followed by a colon and their description.(e.g. "foo: this is the foo argument")</li>
+						<li>"Returns:" is unique and should be followed by text on its own line. Only text on the same line as "Returns: " will be shown in the documentation.</li>
+					</ol>
+				</li>
+				<li>Powershell: Add comments to the top of the document. Comments written after the first line of code will not be added</li>
+				<li>Processes: Directly edit the html. Not ideal but easy enough</li>
+				<li>After all comments are written, press alt+d in sublime text, to automatically run the documentation generation script</li>
+			</ol>
+		</div>
+		<div id="Tips" class="par procname">Tips
+			<div class="prodesc">If you want to run batchlisp on the TDSBSHARE drive, you have to map a network drive to be able to see it!</div>
+			<div class="prodesc"></div>
+		</div>
+	</div>
+	<div id="space"></div>
+	<div class="over">
+		<img class="overimg" src="">
+		<div class="imglinktextbox">
+			<a href="" class="imglink" target="_blank">Click here to view image</a>
+		</div>
+	</div>
+</body>
+<footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/scrolloffset.js"></script>
+	<script type="text/javascript" src="js/proccontent.js"></script>
+	<script type="text/javascript" src="js/genjs.js"></script>
+</footer>
+</html>

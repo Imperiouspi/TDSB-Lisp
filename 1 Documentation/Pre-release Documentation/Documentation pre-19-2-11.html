@@ -1,0 +1,1384 @@
+<DOCTYPE !html>
+<html>
+<head>
+	<link rel="stylesheet" href="Documentation.css">
+	<title>Monument ID Lisp Documentation</title>
+</head>
+<body>
+	<div id="sideclr"><div id="sidebar">
+		<a href="#Top" class = "qlink sbarlink"><b>Top</b></a>
+	</div></div>
+	<div id="main">
+		<div id="Top">Monument ID Lisp Documentation</div>
+		<div id="Topsub">Code by Noah Cassidy</div>
+		<div id="header">
+			<div class="subheader">Commands:</div>
+			<div class="row">
+				<a class="qlink" href="#exportnewids">exportnewids</a>
+				<div class="columnright">Export and find room ids and labels, assign new monument ids to the rooms.</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#mergeCAD">mergeCAD</a>
+				<div class="columnright">Merge CAD drawings. Opens to site plan directory</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#mergefloors">mergefloors</a>
+				<div class="columnright">Similar to mergeCAD, but also sorts into layers</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#smn">smn</a>
+				<div class="columnright">Add Site Monument Numbers</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#checkin">checkin</a>
+				<div class="columnright">Check if a point is inside a polygon</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#chk">chk</a>
+				<div class="columnright">Run smn and fix landscape ids</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#isom">isom</a>
+				<div class="columnright">Isolate misc layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#fixerr">fixerr</a>
+				<div class="columnright">Find broken polylines. Colour them (120, 120, 120)</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#fixroomerr">fixroomerr</a>
+				<div class="columnright">Same as fixerr, but also closes all polylines selected, and asks for two points to describe a border</div>
+			</div>
+
+
+			<div class="subheader">Commands from Original Library:</div>
+			<div class="row">
+				<a class="qlink" href="#updatelayers">updatelayers</a>
+				<div class="columnright">Add several layers, to update old documents to the new standard</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#scnmove">scnmove</a>
+				<div class="columnright">Scale labels to new 11x17 layout</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#label">label</a>
+				<div class="columnright">Begin labelling process for room sections</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#fixall">fixall</a>
+				<div class="columnright">Fix all ids in a selection set to use the correct facility number (based on drawing name)</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#mpoint">mpoint</a>
+				<div class="columnright">Draw a point between two specified points</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#mpo">mpo</a>
+				<div class="columnright">Shortcut for mpoint</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#uplay">uplay</a>
+				<div class="columnright">Shortcut for updatelayers</div>
+			</div>
+
+
+			<div class="subheader">Useful functions:</div>
+			<div class="row">
+				<a class="qlink" href="#id_layer">id_layer</a>
+				<div class="columnright">Assign Ids to a generic layer</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#id_forest">id_forest</a>
+				<div class="columnright">Assign Ids to landscape</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#id_playscape">id_playscape</a>
+				<div class="columnright">Assign Ids to playscapes (broken)</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#id_parking">id_parking</a>
+				<div class="columnright">Assign Ids to parking points</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#id_portables">id_portables</a>
+				<div class="columnright">Assign Ids to portables (unreliable)</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#id_field">id_field</a>
+				<div class="columnright">Assign Ids to baseball diamonds and soccerfields</div>
+			</div>
+
+
+			<div class="subheader">Debug Functions:</div>
+			<div class="row">
+				<a class="qlink" href="#missedpl">missedpl</a>
+				<div class="columnright">Find what polylines haven't been exported</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#outlinenotfound">outlinenotfound</a>
+				<div class="columnright">Check for parking points that can't find their outline</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#resetpoints">resetpoints</a>
+				<div class="columnright">Reset the color of parking points after outlinenotfound</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#nonumber">nonumber</a>
+				<div class="columnright">Check for parking points that were not assigned a number</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#clearid">clearid</a>
+				<div class="columnright">Clear ID of all parking points</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#fixforestid">fixforestid</a>
+				<div class="columnright">Change ids with GRASS to GRSS, and replace _9 with _09 on the landscape layer</div>
+			</div>
+
+
+			<div class="subheader">Important Utilities (for use in scripts):</div>
+			<div class="row">
+				<a class="qlink" href="#highlight">highlight</a>
+				<div class="columnright">Zoom to and surround object with a box</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#buildSelfilter">buildSelfilter</a>
+				<div class="columnright">Construct a selection set filter</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#testpt">testpt</a>
+				<div class="columnright">Test if a point is inside a polyline</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#isCounterClockwise">isCounterClockwise</a>
+				<div class="columnright">Check if points are mathematically counterclockwise</div>
+			</div>
+			<div class="row">
+				<a class="qlink" href="#gensortclockwise">gensortclockwise</a>
+				<div class="columnright">Return a list of sorted entities</div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="title"> Complete list of functions</div>
+			<div class="file" id="acaddoc.lsp">acaddoc.lsp
+				<div class="par">
+					<div class="function" id="exr">c:exr ()</div>
+					<div class="desc">	Wrapping command for functions
+					</div>
+				</div>
+			</div>
+			<div class="file" id="exportrooms.lsp">exportrooms.lsp
+				<div class="par">
+					<div class="function" id="getlabel">getlabel (areae)</div>
+					<div class="desc">	Try to find label contained in the room.
+					areae: an entity name
+					Returns: a list in the form (New ID (placeholder only), Old Room ID, Door Number, Door Name, Room Use, Label entity name). All properties except new id from the found label.
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="testpt">testpt (x y ptlist)</div>
+					<div class="desc">	Ray Test, to figure out whether a point x y is in the polygon defined by ptlist.
+					To obtain ptlist, use the function (LM:ent->pts) written by Lee Mac in utils.lsp
+					Returns: count of how many lines were intersected with the ray test. If it is odd, the point is inside. If it is even, the point is outside the polyline.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="intersect">intersect (m b py1 py2 x y)</div>
+					<div class="desc">	Test intersection of a ray from point x,y along the x axis, to the line segment defined by slope m, interect b, and between points py1 and py2.
+						Returns: T if the ray intersects, nil if not.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="getorigin">getorigin (ent)</div>
+					<div class="desc">	Get the origin of a label, arbitrarily defined as the bottom of line 3.
+					Hardcoded to work with three types of blocks.
+					Returns: origin in a list (x y)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="beginexport">beginexport ()</div>
+					<div class="desc">	Set up the export for the rooms. Opens a folder selection dialog, and opens a file "export2.csv" in append mode in that folder.
+					Append mode will not overwrite existing contents.
+					Returns: the folder path where it is saved. No folder selected if nil returned.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="write_export">write_export (siteid newid roomid doornum doorname roomuse)</div>
+					<div class="desc">	Write the values to the export file. 
+					Values to write:
+					siteid: the Facility number, or site id of the building
+					newid: the new room id added to the room
+					roomid: the old room id for the room
+					doornum: Door Number, if it were retrieved from the label.
+					doorname: Door Name if it was retrieved from the label.
+					roomuse: "Used As", as specified in the label.
+					</div>
+				</div>
+			</div>
+			<div class="file" id="ids.lsp">ids.lsp
+				<div class="par">
+					<div class="function" id="c:newfields">c:newfields ()</div>
+					<div class="desc">	Adds the facility number in site_id object data, to any object that does not already have a site id.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="id_layer">id_layer (layname label mode isclose)</div>
+					<div class="desc">	Add Monument ID to a generic layer.
+					If in numbered mode, will set id as facility#_XXXX_NUM, where NUM is a two digit number. The first feature will be assigned _01
+					If in letter mode, will set id as facility#_XXXX_Y, where Y is a single letter. The first feature will be assigned _A
+					layname: string. layer name of feature
+					label: string. four letter code associated with layer (e.g. "GRSS" or "WALK" or "ROOF")
+					mode: string. "num" to use number mode, and "let" to use letter mode. 
+					isclose: bool. should this layer be automatically closed during execution?
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="id_forest">id_forest (layname labels)</div>
+					<div class="desc">	Add id to the landscape layer. If a landscape layer exists, will ask whether any forests exist (usually none do on sites).
+					If a forest is present on site, will loop through all landscape polylines and ask if each one is a forest feature.
+					It tries to highlight each polyline with a white box as it goes, and zooms to each one, but the white box is erased by a redraw and is not always visible.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="id_playscape">id_playscape (layname label)</div>
+					<div class="desc">	Add id to the playscapes. Looks for a surrounding playground outline, and then adds the id in the form: Facitilty#_PLAY_X##
+					Unfortunately, this is unreliable, and also does not correctly increase index as new playscapes are found within playground outlines, so it was done by hand rather than bother fixing this code.
+					To fix: A list of values, length = # of playground outlines, and keep track of how many playscapes have been found in each.
+						OR follow the form of id_parking, and loop through outlines and check which playscapes are inside.
+					If a playscape was not inside, it was labelled as: Facitilty#_PLAY_##, clockwise from enterance 1.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="id_parking">id_parking (layname labels)</div>
+					<div class="desc">	Add id to parking points. For each parking lot, it distinguishes all disabled parking spaces (with (chgdspl)), and then assigns ids clockwise as normal.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="id_portables">id_portables (layname labels)</div>
+					<div class="desc">	Add Ids to portables. This is found in model space, and was assumed to be in a "smsc-room label-small" block. This is inconsistent, and is probably better done by hand.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="id_field">id_field (layname labels)</div>
+					<div class="desc">	Same as normal but also includes "[layname] 2" to use for soccerfields and baseball diamonds.
+					</div>
+				</div>
+			</div>
+			<div class="file" id="merge.lsp">merge.lsp
+				<div class="par">
+					<div class="function" id="mergeCAD">c:mergeCAD ()</div>
+					<div class="desc">	Commands to merge drawings into one as blocks.
+					Mergecad can be used for site plans and general drawings. Mergefloors will add blocks to layers specifying which floor it represents. (0-floor#)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="mergefloors">c:mergefloors ()</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="monumentids.lsp">monumentids.lsp
+				<div class="par">
+					<div class="function" id="smn">c:smn ()</div>
+					<div class="desc">	Originally just a shortcut for site_mon_nums, but now also does some cleaning.
+					Merges "parking point" into "parking points"
+					Also runs newfields to add site ids to anything not assigned in the normal procedure.
+					USE: Automatic, unless forest present. Will ask for confirmation for landscape polylines if forest is indicated.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="site_mon_nums">site_mon_nums ()</div>
+					<div class="desc">	Add monument ids to all features
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="sortclockwise">sortclockwise (arealist outlinelist)</div>
+					<div class="desc">	Redirects to gensortclockwise (for compatibility)
+					arealist: List of entities to be sorted
+					outlinelist: List of points
+					Returns: sorted list
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="sortclockwisePt">sortclockwisePt (pointlist outlinelist)</div>
+					<div class="desc">	Redirects to gensortclockwise (for compatibility)
+					pointlist: List of points to be sorted
+					outlinelist: List of points
+					Returns: sorted list
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="gensortclockwise">gensortclockwise (arealist pointlist outlinelist)</div>
+					<div class="desc">	Sort list into clockwise order
+					arealist: List of entity names to be sorted
+					pointlist: List of centroids (dotted pairs: (x . y))
+					outlinelist: List of points
+					Returns: sorted list
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="isCounterClockwise">isCounterClockwise (alist)</div>
+					<div class="desc">	Test if list of points is mostly counterclockwise.
+					alist: List of points
+					Returns: T or nil
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="gbo">gbo ()</div>
+					<div class="desc">	Get building outline
+					Returns: Selection set of building outlines
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="find_closest">find_closest (apoint apointlist)</div>
+					<div class="desc">	Find closest edge (described by two points) to a point
+					apoint: the point
+					apointlist: list of points that describes edges
+					Returns: integer, index of closest edge from apointlist
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="disttoline">disttoline (x0 y0 x1 y1 x2 y2)</div>
+					<div class="desc">	Distance from point to line
+					x0,y0: point
+					x1,y1,x2,y2: Points to define the line
+					Returns: real, distance
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="testorder">testorder (ret1 ret2)</div>
+					<div class="desc">	Test if the entities are one after an other.
+					Ret1: list, containing (object, centroid, index of closest edge)
+					Ret2: other list, same format as ret1
+					Returns: T or nil
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="dist">dist (p1 p2)</div>
+					<div class="desc">	Distance between two points
+					p1 and p2: points. Only tests x and y, not z.
+					Returns: real, distance between points
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="highlight">highlight (obj)</div>
+					<div class="desc">	Highlight an object by drawing a rounding box, and zooming to the object
+					obj: the object
+					Returns: nothing
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="buildSelfilter">buildSelfilter (types layers blocknames)</div>
+					<div class="desc">	Builds a filter for ssget. Filter will select any objects that share any of the traits given.
+					types: list of object types (e.g. LWPOLYLINE, POINT, or INSERT)
+					layers: list of layers
+					blocknames: list of blocks
+					Returns: list of strings
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="*error*">*error* (msg)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="chgdspl">chgdspl (pointlist)</div>
+					<div class="desc">	Change parking points DSPL. Based on distance to closest icon.
+					pointlist: list of parking points in the drawing
+					Returns: count of points changed
+					</div>
+				</div>
+			</div>
+			<div class="file" id="newroomid.lsp">newroomid.lsp
+				<div class="par">
+					<div class="function" id="exportnewids">c:exportnewids()</div>
+					<div class="desc">	Export and find room ids and labels, assign new monument ids to the rooms.
+					USE:
+					1. Specify folder to export to
+					2. Specify two points that define the boundary of the site.
+					3. Select the polygon that is entrance 1 of the building.
+					4. It will go through each room. It highlights each room with a red box, and also highlights the label it thinks belongs to that room.
+					5. If the label is correct, press ENTER to move on. If it is incorrect, type L and then select the correct label.
+					6. Enter "B" to go to previous room, press R to redraw highlight boxes (they will disappear on any screen redraw)
+					7. After completing each room, it will automatically create "export2.csv" in the folder chosen, and will write the data to that.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nri:sortclockwise">nri:sortclockwise (arealist outlinelist)</div>
+					<div class="desc">	Sort the list of entities in arealist clockwise, following outlinelist.
+					arealist: list of entity names to be sorted
+					outlinelist: list of entity names. Each represents an outline the polygons should be sorted by.
+					Returns: a sorted list of arealist, in the form (room, centroid, index of closest edge)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nri:isCounterClockwise">nri:isCounterClockwise (alist)</div>
+					<div class="desc">	Calculate if a list of points (alist) is mostly counterclockwise.
+					alist: a list of points in the form ((x1 y1 z1) (x2 y2 z2) (x3 y3 z3)...)
+					Returns: T if counterclockwise, nil otherwise.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nri:find_closest">nri:find_closest (apoint apointlist)</div>
+					<div class="desc">	Find the closest line defined in apointlist to the point apoint.
+					apoint: dotted pair (x . y)
+					apointlist: a list of points, each in the form (x y z). Each sequential pair of points defines an edge, but different polygons are defined by the value -1 in between their list of points.
+					Returns: the index of the closest line in apointlist.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="disttoline">disttoline (x0 y0 x1 y1 x2 y2)</div>
+					<div class="desc">	Distance from point x0 y0 to line segment x1 y1 to x2 y2
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nri:testorder">nri:testorder (ret1 ret2)</div>
+					<div class="desc">	Test if the order of object ret1 is correct relative to ret2.
+					Returns:
+					T if: the index of the edge ret1 is closest to is larger than that of ret2. 
+					OR if they are on the same edge, T if ret1 is closer to the beginning of the edge than ret2 is.
+					ret1,ret2: lists in the form of (room, centroid, index of closest edge)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="dist">dist (p1 p2)</div>
+					<div class="desc">	Distance between point 1 and point 2.
+					p1, p2: lists. (x y z)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nri:getblockSS">nri:getblockSS ()</div>
+					<div class="desc">	Returs a selection set of all labels in the boundary. Requires that variables boundaryp1 and boundaryp2 are defined. Written for convenience.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nri:highlight">nri:highlight (label)</div>
+					<div class="desc">	Highlight an object by zooming to it, and surrounding it with a box.
+					label: the object to be highlghted.
+					Returns: nothing
+					</div>
+				</div>
+			</div>
+			<div class="file" id="search.lsp">search.lsp
+				<div class="par">
+					<div class="function" id="missedpl">missedpl ()</div>
+					<div class="desc">	Turn polylines to red if they have not been included in the export. (checked against their new room id)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="brokenlabel">brokenlabel ()</div>
+					<div class="desc">	Check for labels that don't have the properties DOOR#, DOORNAME, or ROOMUSAGE. 
+					I don't remember why this was useful, but it'll change the block colour to red.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="outlinenotfound">outlinenotfound ()</div>
+					<div class="desc">	Check if parking points have all found their proper outlines. If they have not, their colour will be red.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="resetpoints">resetpoints ()</div>
+					<div class="desc">	Reset the color of each parking point to its original one. Only works after outlinenotfound has been run.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="checkin">c:checkin ()</div>
+					<div class="desc">	Check if a point is in an outline. Verifies the function of (testpt).
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="nonumber">nonumber ()</div>
+					<div class="desc">	Check how many parking points have not been assigned a number correctly.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="clearid">clearid ()</div>
+					<div class="desc">	Clear the site id of every parking point.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="chk">c:chk ()</div>
+					<div class="desc">	Run a check as the last process.
+					Run SMN again, and fix the forest id (should be fixed on new runs)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="fixforestid">fixforestid ()</div>
+					<div class="desc">	Replace site ids that were labelled GRASS with GRSS instead, and replace _9 with _09 as it should be.
+					Returns: number of GRASS labels fixed.
+					</div>
+				</div>
+			</div>
+			<div class="file" id="testpoint.lsp">testpoint.lsp
+				<div class="par">
+					<div class="function" id="testpt">c:testpt ()</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="intersect">intersect (m b py1 py2 x y)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="testorder.lsp">testorder.lsp
+				<div class="par">
+					<div class="function" id="testcolor">c:testcolor ()</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="util.lsp">util.lsp
+				<div class="par">
+					<div class="function" id="addlayer">addlayer (name clr linetype)</div>
+					<div class="desc">	Add layer to the document
+					name: Name of layer
+					clr: Color of layer
+					linetype: Type of line (Common linetypes: "ACAD_ISO03W100", "Continuous")
+					Return: nothing
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setlayer">setlayer (lyr)</div>
+					<div class="desc">	Set the current layer. Often used to reset the current layer after some operation that changes it.
+					Pass in current layer
+					Return: nothing
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="isom">c:isom ()</div>
+					<div class="desc">	Wrapper to quickly isolate the "misc" layer
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="new_isolate">new_isolate (layer)</div>
+					<div class="desc">	Isolate "layer"
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="addODTable">addODTable (e tblname field)</div>
+					<div class="desc">	Add a general table
+					e: Entity to add data to
+					tblname: Name of table (e.g. "2" or "3")
+					field: title of field in table. ("site_id" or "room_id" have been used)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="addoldRoomID">addoldRoomID (e)</div>
+					<div class="desc">	Attach old Room ID table.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="addSiteID">addSiteID (e)</div>
+					<div class="desc">	Attach a site id to e
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="addnewRoomID">addnewRoomID (e)</div>
+					<div class="desc">	Attach a new rood id to e
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setoldRoomID">setoldRoomID (e id)</div>
+					<div class="desc">	Set old room id to a new value. This should likely not be used, it will overwrite data with no way to retrieve it.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setSiteID">setSiteID (e id)</div>
+					<div class="desc">	Set the site id/monument number
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setnewRoomID">setnewRoomID (e id)</div>
+					<div class="desc">	Set the new room id
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="point">point (x y)</div>
+					<div class="desc">	Draw a point at (x, y)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="pointvector">pointvector (alist)</div>
+					<div class="desc">	Wrapper function to pass a list instead of coordinates to (point). List should be in the form (x y ...)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="replace">replace (alist pos newitem)</div>
+					<div class="desc">	Replace an index in a list with a new item.
+					alist: the list
+					pos: the index to be replaced (starting from 0)
+					newitem: the item to be inserted.
+					Returns: the new list with the extra item.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="mergeSS">mergeSS (ss1 ss2)</div>
+					<div class="desc">	Add ss2 to ss1
+					ss1, ss2: selection set
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="fixerr">c:fixerr ()</div>
+					<div class="desc">	Wrapper function to detect errors with finderr
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="fixroomerr">c:fixroomerr ()</div>
+					<div class="desc">	Wrapper function to find errors in a merged file.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="finderr">finderr ()</div>
+					<div class="desc">	Find errors in a file. Looks through entire file for polylines where (getcenter) fails (i.e. returns (-1 . -1)). It will fail if (vla-AddRegion) fails.
+					This might happen because:
+					1. The polyline is not closed
+					2. The polyline may have self-intersecting or overlapping geometry. Look for vertices that are on top of other vertices, or edges that lay on top of others.
+					Polylines that have failed will be turned grey (specifically (120 120 120))
+					Returns: number of failed polylines.
+					Will only look at polylines contained in the layers specified by lolist.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="findselerr">findselerr (ss)</div>
+					<div class="desc">	Same as finderr, but will only search the selection set passed to it.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="findROOMerr">findROOMerr (p1 p2)</div>
+					<div class="desc">	Will search the layer "tdsb-smsc-net area" to find broken polylines. Will either ask for a boundary specified by two points, or will use the ones passed to it.
+					Acts the same as finderr, but will also close polylines automatically.
+					p1, p2: points in the form (x y z).
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setcolor">setcolor (e ncolor)</div>
+					<div class="desc">	Set the color of an entity to (R G B).
+					e: entity name
+					ncolor: a list of integers from 0 to 255. (R G B)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="resetcolor">resetcolor (e)</div>
+					<div class="desc">	Reset the entity's color to its original one. Will only work after (setcolor) is called.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="PSS">PSS ()</div>
+					<div class="desc">	Move to first paperspace
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="MSS">MSS ()</div>
+					<div class="desc">	Move to model space
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="asin">asin (y)</div>
+					<div class="desc">	From AfraLisp (https://www.afralisp.net/archive/Tips/code20.htm)
+					asin
+					-1<=y<=1
+					returns inverse sin in radians
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="acos">acos (y)</div>
+					<div class="desc">	acos
+					-1<=y<=1
+					returns inverse cos in radians
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="getcenter">getcenter (selection)</div>
+					<div class="desc">	code converted from https://www.cadtutor.net/forum/topic/96-lisp-for-marks-centroids-of-closed-polylines/
+					WILL ONLY RETURN CENTER OF LAST POLYLINE IN SELECTION SET, so don't bother passing more that one object in the set.
+					selection: a selection set.
+					Returns: the center of the last object in the selection set
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="avgCentroid">avgCentroid (p)</div>
+					<div class="desc">	This will return the centroid of a set of points, as a fast approximation of the centroid of a polygon.
+					This is not the same as the centroid of a polygon, if sides are made of more than two points.
+					Returns: a list (x y)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:ss->ent">LM:ss->ent (ss)</div>
+					<div class="desc">	--------------=={ SelectionSet -> Entities }==--------------
+					
+					Converts a SelectionSet to a list of Entities 
+					------------------------------------------------------------
+					Author: Lee Mac, Copyright © 2011 - www.lee-mac.com 
+					------------------------------------------------------------
+					Arguments:
+					ss - Valid SelectionSet (Pickset) 
+					------------------------------------------------------------
+					Returns:List of Entity names, else nil
+					------------------------------------------------------------
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:startundo">LM:startundo (doc)</div>
+					<div class="desc">
+					Start Undo-Lee Mac
+					Opens an Undo Group.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:endundo">LM:endundo (doc)</div>
+					<div class="desc">
+					End Undo-Lee Mac
+					Closes an Undo Group.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function">LM:acdoc nil</div>
+					<div class="desc">
+					Active Document-Lee Mac
+					Returns the VLA Active Document Object
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:vl-getattributevalue">LM:vl-getattributevalue (blk tag)</div>
+					<div class="desc">
+					Get Attribute Value-Lee Mac
+					Returns the value held by the specified tag within the supplied block, if present.
+					blk - [vla] VLA Block Reference Object
+					tag - [str] Attribute TagString
+					Returns: [str] Attribute value, else nil if tag is not found.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:vl-setattributevalue">LM:vl-setattributevalue (blk tag val)</div>
+					<div class="desc">
+					Set Attribute Value-Lee Mac
+					Sets the value of the first attribute with the given tag found within the block, if present.
+					blk - [vla] VLA Block Reference Object
+					tag - [str] Attribute TagString
+					val - [str] Attribute Value
+					Returns: [str] Attribute value if successful, else nil.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:vl-getattributevalues">LM:vl-getattributevalues (blk)</div>
+					<div class="desc">
+					Get Attribute Values-Lee Mac
+					Returns an association list of attributes present in the supplied block.
+					blk - [vla] VLA Block Reference Object
+					Returns: [lst] Association list of ((<tag> . <value>) ...)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:vl-setattributevalues">LM:vl-setattributevalues (blk lst)</div>
+					<div class="desc">
+					Set Attribute Values-Lee Mac
+					Sets attributes with tags found in the association list to their associated values.
+					blk - [vla] VLA Block Reference Object
+					lst - [lst] Association list of ((<tag> . <value>) ...)
+					Returns: nil
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getattributevalue">LM:getattributevalue (blk tag)</div>
+					<div class="desc">
+					Get Attribute Value-Lee Mac
+					Returns the value held by the specified tag within the supplied block, if present.
+					blk - [ent] Block (Insert) Entity Name
+					tag - [str] Attribute TagString
+					Returns: [str] Attribute value, else nil if tag is not found.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getattributevalue">LM:getattributevalue (blk tag)</div>
+					<div class="desc">
+					Get Attribute Value-Lee Mac
+					Returns the value held by the specified tag within the supplied block, if present.
+					blk - [ent] Block (Insert) Entity Name
+					tag - [str] Attribute TagString
+					Returns: [str] Attribute value, else nil if tag is not found.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:setattributevalue">LM:setattributevalue (blk tag val)</div>
+					<div class="desc">
+					Set Attribute Value-Lee Mac
+					Sets the value of the first attribute with the given tag found within the block, if present.
+					blk - [ent] Block (Insert) Entity Name
+					tag - [str] Attribute TagString
+					val - [str] Attribute Value
+					Returns: [str] Attribute value if successful, else nil.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:setattributevalue">LM:setattributevalue (blk tag val)</div>
+					<div class="desc">
+					Set Attribute Value-Lee Mac
+					Sets the value of the first attribute with the given tag found within the block, if present.
+					blk - [ent] Block (Insert) Entity Name
+					tag - [str] Attribute TagString
+					val - [str] Attribute Value
+					Returns: [str] Attribute value if successful, else nil.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getattributevalues">LM:getattributevalues (blk)</div>
+					<div class="desc">
+					Get Attribute Values-Lee Mac
+					Returns an association list of attributes present in the supplied block.
+					blk - [ent] Block (Insert) Entity Name
+					Returns: [lst] Association list of ((<tag> . <value>) ...)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getattributevalues">LM:getattributevalues (blk)</div>
+					<div class="desc">
+					Get Attribute Values-Lee Mac
+					Returns an association list of attributes present in the supplied block.
+					blk - [ent] Block (Insert) Entity Name
+					Returns: [lst] Association list of ((<tag> . <value>) ...)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:setattributevalues">LM:setattributevalues (blk lst)</div>
+					<div class="desc">
+					Set Attribute Values-Lee Mac
+					Sets attributes with tags found in the association list to their associated values.
+					blk - [ent] Block (Insert) Entity Name
+					lst - [lst] Association list of ((<tag> . <value>) ...)
+					Returns: nil
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:setattributevalues">LM:setattributevalues (blk lst)</div>
+					<div class="desc">
+					Set Attribute Values-Lee Mac
+					Sets attributes with tags found in the association list to their associated values.
+					blk - [ent] Block (Insert) Entity Name
+					lst - [lst] Association list of ((<tag> . <value>) ...)
+					Returns: nil
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:ent->pts">LM:ent->pts (ent acc)</div>
+					<div class="desc">
+					Entity to Point List-Lee Mac
+					Returns a list of points describing or approximating the supplied entity, else nil if the entity is not supported.
+					ent - [ent] Entity name to be described by point list (POINT/LINE/ARC/CIRCLE/LWPOLYLINE/POLYLINE/ELLIPSE/SPLINE)
+					acc - [num] Positive number determining the point density for non-linear objects
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:browseforfolder">LM:browseforfolder (msg dir bit)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:GetInsideAngle">LM:GetInsideAngle (p1 p2 p3)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="pc">pc (sel)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:sublst">LM:sublst (lst idx len)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles">LM:getfiles (msg def ext)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="*error*">*error* (msg)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:listbox">LM:getfiles:listbox (key lst)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:listfiles">LM:getfiles:listfiles (dir ext lst)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:checkredirect">LM:getfiles:checkredirect (dir)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:sort">LM:getfiles:sort (lst)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:sortlist">LM:getfiles:sortlist (lst)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:groupbyfunction">LM:getfiles:groupbyfunction (lst fun)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:splitstring">LM:getfiles:splitstring (str)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:browseforfolder">LM:getfiles:browseforfolder (msg dir flg)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:full->relative">LM:getfiles:full->relative (dir path)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:str->lst">LM:getfiles:str->lst (str del)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:updatefilelist">LM:getfiles:updatefilelist (dir ext lst)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:updateselected">LM:getfiles:updateselected (dir lst)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:updir">LM:getfiles:updir (dir)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:fixdir">LM:getfiles:fixdir (dir)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:getfiles:removeitems">LM:getfiles:removeitems (itm lst)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div id="title">Complete list of functions from Original Library</div>
+			<div class="file" id="addlayers.lsp">addlayers.lsp
+				<div class="par">
+					<div class="function" id="updatelayers">c:updatelayers ()</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="colorlines.lsp">colorlines.lsp
+				<div class="par">
+					<div class="function" id="colorLines">c:colorLines ()</div>
+					<div class="desc">	debug/testing command
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="getSelection">getSelection ()</div>
+					<div class="desc">	Ask for a selection of polylines
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="getlayer">getlayer (sel_list layer)</div>
+					<div class="desc">	Return a selection set of all objects on layer.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setcolor">setcolor (e ncolor)</div>
+					<div class="desc">	Set the color of an entity.
+					e: NOT JUST AN ENAME. Pass in the list returned by (entget ename)
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="resetcolor">resetcolor (e)</div>
+					<div class="desc">	Reset color of the entity. Only works after (setcolor) has been run.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setlayer">setlayer (lyr)</div>
+					<div class="desc">	Set the current layer as lyr. Will add the layer if it does not already exist.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="Table">Table (s)</div>
+					<div class="desc">	Written By Michael Puckett.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="placeText">placeText (selection id savedlayer)</div>
+					<div class="desc">	code from https://www.cadtutor.net/forum/topic/96-lisp-for-marks-centroids-of-closed-polylines/
+					Place text "id" on "savedlayer" in the center of "selection"
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="addODTable">addODTable (e tblname field)</div>
+					<div class="desc">	Add an object data table to an object e.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="addSiteID">addSiteID (e)</div>
+					<div class="desc">	Attach a site id to entity e
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="setSiteID">setSiteID (e id)</div>
+					<div class="desc">	Set the site Id to entity e, with text id.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="getschoolnum">getschoolnum ()</div>
+					<div class="desc">	Retrieve the facility id from the document name (assuming the facility id is the first 4 characters of the name)
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="LM:ss->ent">LM:ss->ent (ss)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="helper.lsp">helper.lsp
+				<div class="par">
+					<div class="function" id="label">c:label ()</div>
+					<div class="desc">	wrapper function for command
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="helper">helper ()</div>
+					<div class="desc">	Helper
+					Controls DCL
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="saveLayer">saveLayer ()</div>
+					<div class="desc">	Save layer when DCL is closed
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="createSections">createSections ()</div>
+					<div class="desc">	Create "sections" list, color sections
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="isolate">isolate ()</div>
+					<div class="desc">	Turn on only savedlayer (set by the gui) and the text layer for savedlayer.
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="labelLayers">labelLayers ()</div>
+					<div class="desc">	label room sections.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="export">export ()</div>
+					<div class="desc">	export sections and od to csv file
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="options">options ()</div>
+					<div class="desc">	Load options window. Unused.
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="saveoptions">saveoptions ()</div>
+					<div class="desc">	Save options
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="fixlabel">fixlabel ()</div>
+					<div class="desc">	Fix any roof id, replacing old monument id with the new one. Only the section and section number need by specified (i.e. "A4")
+					</div>
+				</div>
+				<div class="par">
+					<div class="function" id="saveid">saveid ()</div>
+					<div class="desc">	Save the id entered in the fixlabel box before closing the box.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="redolabel">redolabel ()</div>
+					<div class="desc">	Actually reset the label specified in "fixid".
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="PSC">PSC (poly)</div>
+					<div class="desc">
+					Function name: PSC = Polyline Self-Crossing
+					To determine whether a Polyline of any type Crosses itSelf.
+					With 3D Polylines, must have true intersection in 3D, not apparent in 2D.
+					Returns T if self-crossing, nil if not.
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="fixall">c:fixall ()</div>
+					<div class="desc">	Fix all ids in a selection set after they were all set to use facility number 0388 rather than the correct one.
+					</div>
+				</div>
+			</div>
+			<div class="file" id="movescale.lsp">movescale.lsp
+				<div class="par">
+					<div class="function" id="scnmove">c:scnmove ()</div>
+					<div class="desc">	Scale space between labels to new size for 11x17 view. Requires scale to be calculated manually. 
+					</div>
+				</div>
+			</div>
+			<div class="file" id="mp.lsp">mp.lsp
+				<div class="par">
+					<div class="function" id="mpoint">c:mpoint ()</div>
+					<div class="desc">	Draw a point at the midpoint of two points.
+					</div>
+				</div>
+			</div>
+			<div class="file" id="outlineobjectsv1-1.lsp">outlineobjectsv1-1.lsp
+				<div class="par">
+					<div class="function" id="outline">c:outline ()</div>
+					<div class="desc"></div>
+				</div>
+				<div class="par">
+					<div class="function" id="*error*">*error* (msg)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:outline">LM:outline (sel)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:ssboundingbox">LM:ssboundingbox (s)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:startundo">LM:startundo (doc)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:endundo">LM:endundo (doc)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="siteplan-utils.lsp">siteplan-utils.lsp
+				<div class="par">
+					<div class="function" id="mpo">c:mpo ()</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="uplay">c:uplay ()</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			Downloaded files. See file for documentation. All functions copied to other files if used.
+			<div class="file" id="del-layer.lsp">del-layer.lsp
+				<div class="par">
+					<div class="function" id="delbylayer">delbylayer (layname)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="outline">c:outline ()</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:outline">LM:outline (sel)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:ssboundingbox">LM:ssboundingbox (s)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:startundo">LM:startundo (doc)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:endundo">LM:endundo (doc)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="OutlineObjectsV1-1.lsp">OutlineObjectsV1-1.lsp
+				<div class="par">
+					<div class="function" id="outline">c:outline ()</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="*error*">*error* (msg)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:outline">LM:outline (sel)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:ssboundingbox">LM:ssboundingbox (s)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:startundo">LM:startundo (doc)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:endundo">LM:endundo (doc)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="sel_by_OD_US.lsp">sel_by_OD_US.lsp
+				<div class="par">
+					<div class="function" id="Sel_By_OD">c:Sel_By_OD ()</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<div class="file" id="WriteCSV-V1-1">WriteCSV-V1-1
+				<div class="par">
+					<div class="function" id="LM:writecsv">LM:writecsv (lst csv)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="appendcsv">appendcsv (lst csv)</div>
+					<div class="desc">	writecsv but append instead of overwrite
+					</div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:lst->csv">LM:lst->csv (lst sep)</div>
+					<div class="desc"></div>
+				</div>
+
+				<div class="par">
+					<div class="function" id="LM:csv-addquotes">LM:csv-addquotes (str sep)</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="index">
+		Index
+	</div>
+</body>
+<footer>
+	  <script type="text/javascript" src="contents.js"></script>
+</footer>
+</html>

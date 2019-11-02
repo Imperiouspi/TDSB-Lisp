@@ -1,0 +1,39 @@
+#indextitle{
+    margin-left: 255px;
+    font-size: 20px;
+}
+
+table { 
+    border-collapse: separate; 
+    border-spacing: 0 5px; 
+    margin-top: -5px; /* correct offset on first border spacing if desired */
+}
+th {
+    padding: 5px;
+    text-align: left;
+}
+th:first-child {
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+th:last-child {
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+td {
+    padding: 5px;
+}
+td:first-child {
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+td:last-child {
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+.indrow:hover {
+    background: rgb(141, 198, 239);
+    border-radius: 10px;
+}

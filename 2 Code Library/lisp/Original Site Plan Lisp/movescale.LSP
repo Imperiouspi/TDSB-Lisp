@@ -1,0 +1,46 @@
+;Scale space between labels to new size for 11x17 view.
+
+;Description:
+;Get a selection of objects, and scale the distance between them. Used to scale 8.5x11 labels into the 11x17 paperspace.
+(defun C:SCNMOVE()
+	(setq vps (ssget "X" (list (cons 0 "VIEWPORT") (cons 8 "Defpoints"))))
+	(setq sc1 (vla-get-CustomScale (vlax-ename->vla-object (ssname vps 0))))
+	(setq sc2 (vla-get-CustomScale (vlax-ename->vla-object (ssname vps 1))))
+	(if (> sc1 sc2)
+		(setq scale (/ sc1 sc2))
+		(setq scale (/ sc2 sc1))
+	)
+	(setq a (ssget))
+	(setq countervar 0)
+	(while (< countervar (sslength a))
+		(setq obj (vlax-ename->vla-object (ssname a countervar)))
+		(setq origin (vlax-3d-point 0 0 0))
+		(setq ent (entget (ssname a countervar)))
+		(setq pos (vl-catch-all-apply 'assoc (list 10 ent)))
+		(setq newpos (vlax-3d-point (* (- scale 1) (cadr pos)) (* (- scale 1) (caddr pos)) 0))
+		(vla-move obj origin newpos)
+		(setq countervar (+ 1 countervar))
+	)
+)
+
+;Description:
+;Copies the properties of the 8.5x11 title block into the 11x17 title block
+(defun C:COPYADDR ()
+	(setvar "ctab" "8x11")
+	(setq block (ssname (ssget "X" '((2 . "record dwg block 8.5x11 site NEW"))) 0))
+	(setq facname (LM:getattributevalue block "FACILITYNAME"))
+	(setq facnum (LM:getattributevalue block "FACILITY#"))
+	(setq addr1 (LM:getattributevalue block "ADDRESS1"))
+	(setq addr2 (LM:getattributevalue block "ADDRESS2"))
+	(setq pstlcd (LM:getattributevalue block "PSTLCD"))
+	(setvar "ctab" "11x17")
+	(setq block (ssname (ssget "X" '((2 . "record dwg block 11x17 site NEW"))) 0))
+	(LM:setattributevalue block "FACILITYNAME" facname)
+	(LM:setattributevalue block "FACILITY#" facnum)
+	(LM:setattributevalue block "ADDRESS1" addr1)
+	(LM:setattributevalue block "ADDRESS2" addr2)
+	(LM:setattributevalue block "PSTLCD" pstlcd)
+
+	(LM:setattributevalue block "YY-MM-DD" "")
+	(LM:setattributevalue block "SHEETTITLE2" "")
+)

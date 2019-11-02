@@ -1,0 +1,26 @@
+Process
+01. Turn on all layers
+02. Delete raster image, site, facility footprint layers
+03. turn off labeltext
+04. updatelayers
+05. 8.5x11
+	a) unlock display, dview all tw
+	b) if 0, continue, else move to 6
+	c) group labels, chspace
+	d) set layer defpoints
+	e) redo viewport (on defpoint layer)
+	f) bring back labels
+06. draw points on 8.5x11
+	a) turn off viewport
+	b) draw points
+	c) turn on viewport
+07. chspace points
+08. copy in 11x17
+09. dview all tw
+10. move and zoom 11x17
+11. chspace points
+12. copy in labels
+13. move to points
+14. delete points
+
+0.035502

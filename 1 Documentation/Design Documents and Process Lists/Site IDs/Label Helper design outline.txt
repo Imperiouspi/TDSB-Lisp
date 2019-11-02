@@ -1,0 +1,55 @@
+Label Helper design outline
+Goal:
+	Help label and track site plans in Autocad Map3D
+Features:
+	- Label and colour all feature types on the correct layer 
+	- Auto-add object data to features
+	- Export to file to correlate to old id (by hand)
+
+Needed Functionality:
+	- Add label (d)
+	- Add Colour (d)
+	- Switch, add new, and reset current Layer (d)
+	- Add OD (d)
+	- GUI to select
+		- feature type
+		- section for feature (A/B/etc.)
+	- GUI options
+		- colour schemes
+		- layer/feature mapping
+	- Export to file
+
+
+Gui Buttons (see mockup)-> possible to disappear dialogue temporarily?
+	A) Options: open options dialog
+	B) Select Features: Drop down menu to select which features to label
+	C) Select Objects:
+		1. Select all objects in A or type x and then select
+		2. Select B or press return. If sset is empty then proceed
+		3. Ensure something has been selected
+	D) Begin Labelling:
+		1. Select an object  (single selection), press return
+		2. Add label
+		3. Add OD
+		4. Colour according to colour scheme
+		5. Add to Export Array --> work out export workflow
+	E) Export: Export to default file. Set Export options in Options
+	F) Done: Close dialog
+
+Chose Option 1:
+1. Test for line coincedence
+2. Start at upper-right-most vertex of entrance, search for coincedence
+
+Autogen clockwise:
+Option 1: Follow outline in spiral
+	1. Select Outline object
+	2. Get slope of line, follow to next object
+	3. Inner objects: ??
+Option 2: Whirlwind Select
+	1. Divide into quandrants.
+	2. Find entrance. 
+	3. If more than one object still present in quandrant, Go to step 1 with the entrance quandrant
+	4. Label object, move to next clockwise quandrant
+	5. What will this actually do? Might catch ends of peninsulas or centers rather than edge first
+Option 3: Just clockwise
+	1. See https://stackoverflow.com/questions/6989100/sort-points-in-clockwise-order# for algorithm.

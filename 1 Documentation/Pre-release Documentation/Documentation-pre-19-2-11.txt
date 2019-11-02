@@ -1,0 +1,721 @@
+Commands: use as normal
+Functions: type arguments after name, surrounded by parentheses. (e.g. (id_forest "tdsb-smsc-landscape" "GRSS"))
+
+Commands:
+	exr 				Begin the room export process
+	mergeCAD 			Merge CAD drawings. Opens to site plan directory
+	mergefloors 		Similar to mergeCAD, but also sorts into layers
+	smn 				Add Site Monument Numbers
+	checkin 			Check if a point is inside a polygon
+	chk 				Run smn and fix landscape ids
+	isom 				Isolate misc layer
+	fixerr 				Find broken polylines. Colour them (120, 120, 120)
+	fixroomerr 			Same as fixerr, but also closes all polylines selected, and asks for two points to describe a border
+
+Commands from Original Library:
+	updatelayers 		Add several layers, to update old documents to the new standard
+	label 				Begin labelling process for room sections
+	fixall 				Fix all ids in a selection set to use the correct facility number (based on drawing name)
+	mpoint 				Draw a point between two specified points
+	mpo 				Shortcut for mpoint
+	uplay 				Shortcut for updatelayers
+
+Useful functions:
+	id_layer 			Assign Ids to a generic layer
+	id_forest 			Assign Ids to landscape
+	id_playscape 		Assign Ids to playscapes (broken)
+	id_parking 			Assign Ids to parking points
+	id_portables 		Assign Ids to portables (unreliable)
+	id_field 			Assign Ids to baseball diamonds and soccerfields
+
+Debug Functions:
+	missedpl 			Find what polylines haven't been exported
+	outlinenotfound		Check for parking points that can't find their outline
+	resetpoints 		Reset the color of parking points after outlinenotfound
+	nonumber 			Check for parking points that were not assigned a number
+	clearid 			Clear ID of all parking points
+	fixforestid 		Fix GRASS to GRSS, and replace _9 with _09 on the landscape layer
+
+Important Utilities (for use in scripts):
+	highlight 			Zoom to and surround object with a box
+	buildSellFilter		Construct a selection set filter
+	testpt 				Test if a point is inside a polyline
+	iscounterclockwise	Check if points are mathematically counterclockwise
+	gensortclockwise 	Return a list of sorted entities
+
+
+Complete list of functions
+exportrooms
+	;Try to find label contained in the room.
+	;areae: an entity name
+	;Returns: a list in the form (New ID (placeholder only), Old Room ID, Door Number, Door Name, Room Use, Label entity name). All properties except new id from the found label.
+		getlabel (areae)
+
+	;Ray Test, to figure out whether a point x y is in the polygon defined by ptlist.
+	;To obtain ptlist, use the function (LM:ent->pts) written by Lee Mac in utils.lsp
+	;Returns: count of how many lines were intersected with the ray test. If it is odd, the point is inside. If it is even, the point is outside the polyline.
+		testpt (x y ptlist)
+
+	;Test intersection of a ray from point x,y along the x axis, to the line segment defined by slope m, interect b, and between points py1 and py2.
+	;Returns: T if the ray intersects, nil if not.
+		intersect (m b py1 py2 x y)
+
+	;Get the origin of a label, arbitrarily defined as the bottom of line 3.
+	;Hardcoded to work with three types of blocks.
+	;Returns: origin in a list (x y)
+		getorigin (ent)
+
+	;Set up the export for the rooms. Opens a folder selection dialog, and opens a file "export2.csv" in append mode in that folder.
+	;Append mode will not overwrite existing contents.
+	;Returns: the folder path where it is saved. No folder selected if nil returned.
+		beginexport ()
+
+	;Write the values to the export file. 
+	;Values to write:
+	;siteid: the Facility number, or site id of the building
+	;newid: the new room id added to the room
+	;roomid: the old room id for the room
+	;doornum: Door Number, if it were retrieved from the label.
+	;doorname: Door Name if it was retrieved from the label.
+	;roomuse: "Used As", as specified in the label.
+		write_export (siteid newid roomid doornum doorname roomuse)
+
+ids
+	;Adds the facility number in site_id object data, to any object that does not already have a site id.
+			c:newfields()
+
+	;Add Monument ID to a generic layer.
+	;If in numbered mode, will set id as facility#_XXXX_NUM, where NUM is a two digit number. The first feature will be assigned _01
+	;If in letter mode, will set id as facility#_XXXX_Y, where Y is a single letter. The first feature will be assigned _A
+	;layname: string. layer name of feature
+	;label: string. four letter code associated with layer (e.g. "GRSS" or "WALK" or "ROOF")
+	;mode: string. "num" to use number mode, and "let" to use letter mode. 
+	;isclose: bool. should this layer be automatically closed during execution?
+		id_layer (layname label mode isclose)
+
+	;Add id to the landscape layer. If a landscape layer exists, will ask whether any forests exist (usually none do on sites).
+	;If a forest is present on site, will loop through all landscape polylines and ask if each one is a forest feature.
+	;It tries to highlight each polyline with a white box as it goes, and zooms to each one, but the white box is erased by a redraw and is not always visible.
+		id_forest (layname labels)
+
+	;Add id to the playscapes. Looks for a surrounding playground outline, and then adds the id in the form: Facitilty#_PLAY_X##
+	;Unfortunately, this is unreliable, and also does not correctly increase index as new playscapes are found within playground outlines, so it was done by hand rather than bother fixing this code.
+	;To fix: A list of values, length = # of playground outlines, and keep track of how many playscapes have been found in each.
+	;	OR follow the form of id_parking, and loop through outlines and check which playscapes are inside.
+	;If a playscape was not inside, it was labelled as: Facitilty#_PLAY_##, clockwise from enterance 1.
+		id_playscape (layname label)
+
+	;Add id to parking points. For each parking lot, it distinguishes all disabled parking spaces (with (chgdspl)), and then assigns ids clockwise as normal.
+		id_parking (layname labels)
+
+	;Add Ids to portables. This is found in model space, and was assumed to be in a "smsc-room label-small" block. This is inconsistent, and is probably better done by hand.
+		id_portables (layname labels)
+
+	;Same as normal but also includes "[layname] 2" to use for soccerfields and baseball diamonds.
+		id_field (layname labels)
+
+merge
+	;Commands to merge drawings into one as blocks.
+	;Mergecad can be used for site plans and general drawings. Mergefloors will add blocks to layers specifying which floor it represents. (0-floor#)
+		c:mergeCAD ()
+
+		c:mergeFloors ()
+
+monumentids
+	;Originally just a shortcut for site_mon_nums, but now also does some cleaning.
+	;Merges "parking point" into "parking points"
+	;Also runs newfields to add site ids to anything not assigned in the normal procedure.
+	;USE: Automatic, unless forest present. Will ask for confirmation for landscape polylines if forest is indicated.
+		c:smn ()
+
+	;Add monument ids to all features
+		site_mon_nums ()
+
+	;Redirects to gensortclockwise (for compatibility)
+	;arealist: List of entities to be sorted
+	;outlinelist: List of points
+	;Returns: sorted list
+		sortclockwise (arealist outlinelist)
+
+	;Redirects to gensortclockwise (for compatibility)
+	;pointlist: List of points to be sorted
+	;outlinelist: List of points
+	;Returns: sorted list
+		sortclockwisePt (pointlist outlinelist)
+
+	;Sort list into clockwise order
+	;arealist: List of entity names to be sorted
+	;pointlist: List of centroids (dotted pairs: (x . y))
+	;outlinelist: List of points
+	;Returns: sorted list
+		gensortclockwise (arealist pointlist outlinelist)
+
+	;Test if list of points is mostly counterclockwise.
+	;alist: List of points
+	;Returns: T or nil
+		isCounterClockwise (alist)
+
+	;Get building outline
+	;Returns: Selection set of building outlines
+		gbo ()
+
+	;Find closest edge (described by two points) to a point
+	;apoint: the point
+	;apointlist: list of points that describes edges
+	;Returns: integer, index of closest edge from apointlist
+		find_closest (apoint apointlist)
+
+	;Distance from point to line
+	;x0,y0: point
+	;x1,y1,x2,y2: Points to define the line
+	;Returns: real, distance
+		disttoline (x0 y0 x1 y1 x2 y2)
+
+	;Test if the entities are one after an other.
+	;Ret1: list, containing (object, centroid, index of closest edge)
+	;Ret2: other list, same format as ret1
+	;Returns: T or nil
+		testorder (ret1 ret2)
+
+	;Distance between two points
+	;p1 and p2: points. Only tests x and y, not z.
+	;Returns: real, distance between points
+		dist (p1 p2)
+
+	;Highlight an object by drawing a rounding box, and zooming to the object
+	;obj: the object
+	;Returns: nothing
+		highlight (obj)
+
+	;Builds a filter for ssget. Filter will select any objects that share any of the traits given.
+	;types: list of object types (e.g. LWPOLYLINE, POINT, or INSERT)
+	;layers: list of layers
+	;blocknames: list of blocks
+	;Returns: list of strings
+		buildSelfilter (types layers blocknames)
+
+		*error* (msg)
+
+	;Change parking points DSPL. Based on distance to closest icon.
+	;pointlist: list of parking points in the drawing
+	;Returns: count of points changed
+		chgdspl (pointlist)
+
+newroomid
+	;Export and find room ids and labels, assign new monument ids to the rooms.
+	;USE:
+	;1. Specify folder to export to
+	;2. Specify two points that define the boundary of the site.
+	;3. Select the polygon that is entrance 1 of the building.
+	;4. It will go through each room. It highlights each room with a red box, and also highlights the label it thinks belongs to that room.
+	;5. If the label is correct, press ENTER to move on. If it is incorrect, type L and then select the correct label.
+	;6. Enter "B" to go to previous room, press R to redraw highlight boxes (they will disappear on any screen redraw)
+	;7. After completing each room, it will automatically create "export2.csv" in the folder chosen, and will write the data to that.
+			c:exportnewids()
+
+	;Sort the list of entities in arealist clockwise, following outlinelist.
+	;arealist: list of entity names to be sorted
+	;outlinelist: list of entity names. Each represents an outline the polygons should be sorted by.
+	;Returns: a sorted list of arealist, in the form (room, centroid, index of closest edge)
+			nri:sortclockwise(arealist outlinelist)
+
+	;Calculate if a list of points (alist) is mostly counterclockwise.
+	;alist: a list of points in the form ((x1 y1 z1) (x2 y2 z2) (x3 y3 z3)...)
+	;Returns: T if counterclockwise, nil otherwise.
+		nri:isCounterClockwise (alist)
+
+	;Find the closest line defined in apointlist to the point apoint.
+	;apoint: dotted pair (x . y)
+	;apointlist: a list of points, each in the form (x y z). Each sequential pair of points defines an edge, but different polygons are defined by the value -1 in between their list of points.
+	;Returns: the index of the closest line in apointlist.
+		nri:find_closest (apoint apointlist)
+
+	;Distance from point x0 y0 to line segment x1 y1 to x2 y2
+		disttoline (x0 y0 x1 y1 x2 y2)
+
+	;Test if the order of object ret1 is correct relative to ret2.
+	;Returns:
+	;T if: the index of the edge ret1 is closest to is larger than that of ret2. 
+	;OR if they are on the same edge, T if ret1 is closer to the beginning of the edge than ret2 is.
+	;ret1,ret2: lists in the form of (room, centroid, index of closest edge)
+		nri:testorder (ret1 ret2)
+
+	;Distance between point 1 and point 2.
+	;p1, p2: lists. (x y z)
+		dist (p1 p2)
+
+	;Returs a selection set of all labels in the boundary. Requires that variables boundaryp1 and boundaryp2 are defined. Written for convenience.
+			nri:getblockSS()
+
+	;Highlight an object by zooming to it, and surrounding it with a box.
+	;label: the object to be highlghted.
+	;Returns: nothing
+		nri:highlight (label)
+
+search
+	;Turn polylines to red if they have not been included in the export. (checked against their new room id)
+		missedpl ()
+
+	;Check for labels that don't have the properties DOOR#, DOORNAME, or ROOMUSAGE. 
+	;I don't remember why this was useful, but it'll change the block colour to red.
+		brokenlabel ()
+
+	;Check if parking points have all found their proper outlines. If they have not, their colour will be red.
+		outlinenotfound ()
+
+	;Reset the color of each parking point to its original one. Only works after outlinenotfound has been run.
+		resetpoints ()
+
+	;Check if a point is in an outline. Verifies the function of (testpt).
+		C:checkin ()
+
+	;Check how many parking points have not been assigned a number correctly.
+		nonumber ()
+
+	;Clear the site id of every parking point.
+		clearid ()
+
+	;Run a check as the last process.
+	;Run SMN again, and fix the forest id (should be fixed on new runs)
+		c:chk ()
+
+	;Replace site ids that were labelled GRASS with GRSS instead, and replace _9 with _09 as it should be.
+	;Returns: number of GRASS labels fixed.
+		fixforestid ()
+
+testpoint
+		c:testpt ()
+
+		intersect (m b py1 py2 x y)
+
+testorder
+		c:testcolor ()
+
+util
+	;Add layer to the document
+	;name: Name of layer
+	;clr: Color of layer
+	;linetype: Type of line (Common linetypes: "ACAD_ISO03W100", "Continuous")
+	;Return: nothing
+		addlayer (name clr linetype)
+
+	;Set the current layer. Often used to reset the current layer after some operation that changes it.
+	;Pass in current layer
+	;Return: nothing
+		setlayer (lyr)
+
+	;Wrapper to quickly isolate the "misc" layer
+		c:isom ()
+
+	;Isolate "layer"
+		new_isolate (layer)
+
+	;Add a general table
+	;e: Entity to add data to
+	;tblname: Name of table (e.g. "2" or "3")
+	;field: title of field in table. ("site_id" or "room_id" have been used)
+		addODTable (e tblname field)
+
+	;Attach old Room ID table.
+		addoldRoomID (e)
+
+	;Attach a site id to e
+		addSiteID (e)
+
+	;Attach a new rood id to e
+		addnewRoomID (e)
+
+	;Set old room id to a new value. This should likely not be used, it will overwrite data with no way to retrieve it.
+		setoldRoomID (e id)
+
+	;Set the site id/monument number
+		setSiteID (e id)
+
+	;Set the new room id
+		setnewRoomID (e id)
+
+	;Draw a point at (x, y)
+		point (x y)
+
+	;Wrapper function to pass a list instead of coordinates to (point). List should be in the form (x y ...)
+		pointvector (alist)
+
+	;Replace an index in a list with a new item.
+	;alist: the list
+	;pos: the index to be replaced (starting from 0)
+	;newitem: the item to be inserted.
+	;Returns: the new list with the extra item.
+		replace (alist pos newitem)
+
+	;Add ss2 to ss1
+	;ss1, ss2: selection set
+		mergeSS (ss1 ss2)
+
+	;Wrapper function to detect errors with finderr
+		c:fixerr ()
+
+	;Wrapper function to find errors in a merged file.
+		c:fixroomerr ()
+
+	;Find errors in a file. Looks through entire file for polylines where (getcenter) fails (i.e. returns (-1 . -1)). It will fail if (vla-AddRegion) fails.
+	;This might happen because:
+	;1. The polyline is not closed
+	;2. The polyline may have self-intersecting or overlapping geometry. Look for vertices that are on top of other vertices, or edges that lay on top of others.
+	;Polylines that have failed will be turned grey (specifically (120 120 120))
+	;Returns: number of failed polylines.
+	;Will only look at polylines contained in the layers specified by lolist.
+		finderr ()
+
+	;Same as finderr, but will only search the selection set passed to it.
+		findselerr (ss)
+
+	;Will search the layer "tdsb-smsc-net area" to find broken polylines. Will either ask for a boundary specified by two points, or will use the ones passed to it.
+	;Acts the same as finderr, but will also close polylines automatically.
+	;p1, p2: points in the form (x y z).
+		findROOMerr (p1 p2)
+
+	;Set the color of an entity to (R G B).
+	;e: entity name
+	;ncolor: a list of integers from 0 to 255. (R G B)
+		setcolor (e ncolor)
+
+	;Reset the entity's color to its original one. Will only work after (setcolor) is called.
+		resetcolor (e)
+
+	;Move to first paperspace
+		PSS ()
+
+	;Move to model space
+		MSS ()
+
+	;From AfraLisp (https://www.afralisp.net/archive/Tips/code20.htm)
+	;asin
+	;-1<=y<=1
+	;returns inverse sin in radians
+		asin (y)
+
+	;acos
+	;-1<=y<=1
+	;returns inverse cos in radians
+		acos (y)
+
+	;code converted from https://www.cadtutor.net/forum/topic/96-lisp-for-marks-centroids-of-closed-polylines/
+	;WILL ONLY RETURN CENTER OF LAST POLYLINE IN SELECTION SET, so don't bother passing more that one object in the set.
+	;selection: a selection set.
+	;Returns: the center of the last object in the selection set
+		getcenter (selection)
+
+	;This will return the centroid of a set of points, as a fast approximation of the centroid of a polygon.
+	;This is not the same as the centroid of a polygon, if sides are made of more than two points.
+	;Returns: a list (x y)
+		avgCentroid (p)
+
+	;;--------------=={ SelectionSet -> Entities }==--------------;;
+	;;;;
+	;;Converts a SelectionSet to a list of Entities ;;
+	;;------------------------------------------------------------;;
+	;;Author: Lee Mac, Copyright © 2011 - www.lee-mac.com ;;
+	;;------------------------------------------------------------;;
+	;;Arguments:;;
+	;;ss - Valid SelectionSet (Pickset) ;;
+	;;------------------------------------------------------------;;
+	;;Returns:List of Entity names, else nil;;
+	;;------------------------------------------------------------;;
+		LM:ss->ent (ss)
+
+	;; Start Undo-Lee Mac
+	;; Opens an Undo Group.
+		LM:startundo (doc)
+
+	;; End Undo-Lee Mac
+	;; Closes an Undo Group.
+		LM:endundo (doc)
+
+	;; Active Document-Lee Mac
+	;; Returns the VLA Active Document Object
+			LM:acdoc nil
+
+	;; Get Attribute Value-Lee Mac
+	;; Returns the value held by the specified tag within the supplied block, if present.
+	;; blk - [vla] VLA Block Reference Object
+	;; tag - [str] Attribute TagString
+	;; Returns: [str] Attribute value, else nil if tag is not found.
+		LM:vl-getattributevalue (blk tag)
+
+	;; Set Attribute Value-Lee Mac
+	;; Sets the value of the first attribute with the given tag found within the block, if present.
+	;; blk - [vla] VLA Block Reference Object
+	;; tag - [str] Attribute TagString
+	;; val - [str] Attribute Value
+	;; Returns: [str] Attribute value if successful, else nil.
+		LM:vl-setattributevalue (blk tag val)
+
+	;; Get Attribute Values-Lee Mac
+	;; Returns an association list of attributes present in the supplied block.
+	;; blk - [vla] VLA Block Reference Object
+	;; Returns: [lst] Association list of ((<tag> . <value>) ...)
+		LM:vl-getattributevalues (blk)
+
+	;; Set Attribute Values-Lee Mac
+	;; Sets attributes with tags found in the association list to their associated values.
+	;; blk - [vla] VLA Block Reference Object
+	;; lst - [lst] Association list of ((<tag> . <value>) ...)
+	;; Returns: nil
+		LM:vl-setattributevalues (blk lst)
+
+	;; Get Attribute Value-Lee Mac
+	;; Returns the value held by the specified tag within the supplied block, if present.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; tag - [str] Attribute TagString
+	;; Returns: [str] Attribute value, else nil if tag is not found.
+		LM:getattributevalue (blk tag)
+
+	;; Get Attribute Value-Lee Mac
+	;; Returns the value held by the specified tag within the supplied block, if present.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; tag - [str] Attribute TagString
+	;; Returns: [str] Attribute value, else nil if tag is not found.
+		LM:getattributevalue (blk tag)
+
+	;; Set Attribute Value-Lee Mac
+	;; Sets the value of the first attribute with the given tag found within the block, if present.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; tag - [str] Attribute TagString
+	;; val - [str] Attribute Value
+	;; Returns: [str] Attribute value if successful, else nil.
+		LM:setattributevalue (blk tag val)
+
+	;; Set Attribute Value-Lee Mac
+	;; Sets the value of the first attribute with the given tag found within the block, if present.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; tag - [str] Attribute TagString
+	;; val - [str] Attribute Value
+	;; Returns: [str] Attribute value if successful, else nil.
+		LM:setattributevalue (blk tag val)
+
+	;; Get Attribute Values-Lee Mac
+	;; Returns an association list of attributes present in the supplied block.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; Returns: [lst] Association list of ((<tag> . <value>) ...)
+		LM:getattributevalues (blk)
+
+	;; Get Attribute Values-Lee Mac
+	;; Returns an association list of attributes present in the supplied block.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; Returns: [lst] Association list of ((<tag> . <value>) ...)
+		LM:getattributevalues (blk)
+
+	;; Set Attribute Values-Lee Mac
+	;; Sets attributes with tags found in the association list to their associated values.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; lst - [lst] Association list of ((<tag> . <value>) ...)
+	;; Returns: nil
+		LM:setattributevalues (blk lst)
+
+	;; Set Attribute Values-Lee Mac
+	;; Sets attributes with tags found in the association list to their associated values.
+	;; blk - [ent] Block (Insert) Entity Name
+	;; lst - [lst] Association list of ((<tag> . <value>) ...)
+	;; Returns: nil
+		LM:setattributevalues (blk lst)
+
+	;; Entity to Point List-Lee Mac
+	;; Returns a list of points describing or approximating the supplied entity, else nil if the entity is not supported.
+	;; ent - [ent] Entity name to be described by point list (POINT/LINE/ARC/CIRCLE/LWPOLYLINE/POLYLINE/ELLIPSE/SPLINE)
+	;; acc - [num] Positive number determining the point density for non-linear objects
+		LM:ent->pts (ent acc)
+
+		LM:browseforfolder (msg dir bit)
+
+		LM:GetInsideAngle (p1 p2 p3)
+
+		pc (sel)
+
+		LM:sublst (lst idx len)
+
+		LM:getfiles (msg def ext)
+
+		*error* (msg)
+
+		LM:getfiles:listbox (key lst)
+
+		LM:getfiles:listfiles (dir ext lst)
+
+		LM:getfiles:checkredirect (dir)
+
+		LM:getfiles:sort (lst)
+
+		LM:getfiles:sortlist (lst)
+
+		LM:getfiles:groupbyfunction (lst fun)
+
+		LM:getfiles:splitstring (str)
+
+		LM:getfiles:browseforfolder (msg dir flg)
+
+		LM:getfiles:full->relative (dir path)
+
+		LM:getfiles:str->lst (str del)
+
+		LM:getfiles:updatefilelist (dir ext lst)
+
+		LM:getfiles:updateselected (dir lst)
+
+		LM:getfiles:updir (dir)
+
+		LM:getfiles:fixdir (dir)
+
+		LM:getfiles:removeitems (itm lst)
+
+
+
+
+Complete list of functions from Original Library
+addlayers
+		c:updatelayers ()
+
+colorlines
+	;debug/testing command
+		c:colorLines ()
+
+	;Ask for a selection of polylines
+		getSelection()
+	;Return a selection set of all objects on layer.
+		getlayer (sel_list layer)
+
+	;Set the color of an entity.
+	;e: NOT JUST AN ENAME. Pass in the list returned by (entget ename)
+		setcolor (e ncolor)
+
+	;Reset color of the entity. Only works after (setcolor) has been run.
+		resetcolor (e)
+
+	;Set the current layer as lyr. Will add the layer if it does not already exist.
+		setlayer (lyr)
+
+	;Written By Michael Puckett.
+		Table (s)
+
+	;code from https://www.cadtutor.net/forum/topic/96-lisp-for-marks-centroids-of-closed-polylines/
+	;Place text "id" on "savedlayer" in the center of "selection"
+		placeText (selection id savedlayer)
+
+	;Add an object data table to an object e.
+		addODTable (e tblname field)
+
+	;Attach a site id to entity e
+		addSiteID (e)
+
+	;Set the site Id to entity e, with text id.
+		setSiteID (e id)
+
+	;Retrieve the facility id from the document name (assuming the facility id is the first 4 characters of the name)
+		getschoolnum()
+		LM:ss->ent (ss)
+
+helper
+	;wrapper function for command
+		c:label ()
+
+	;Helper
+	;Controls DCL
+		helper ()
+
+	;Save layer when DCL is closed
+		saveLayer()
+	;Create "sections" list, color sections
+		createSections()
+	;Turn on only savedlayer (set by the gui) and the text layer for savedlayer.
+		isolate()
+	;label room sections.
+		labelLayers ()
+
+	;export sections and od to csv file
+		export()
+	;Load options window. Unused.
+		options()
+	;Save options
+		saveoptions ()
+
+	;Fix any roof id, replacing old monument id with the new one. Only the section and section number need by specified (i.e. "A4")
+		fixlabel()
+	;Save the id entered in the fixlabel box before closing the box.
+		saveid ()
+
+	;Actually reset the label specified in "fixid".
+		redolabel ()
+
+	;; Function name: PSC = Polyline Self-Crossing
+	;; To determine whether a Polyline of any type Crosses itSelf.
+	;; With 3D Polylines, must have true intersection in 3D, not apparent in 2D.
+	;; Returns T if self-crossing, nil if not.
+		PSC (poly)
+
+	;Fix all ids in a selection set after they were all set to use facility number 0388 rather than the correct one.
+		c:fixall ()
+
+movescale
+	;Scale space between labels to new size for 11x17 view. Requires scale to be calculated manually. 
+		c:scnmove()
+mp
+	;Draw a point at the midpoint of two points.
+		c:mpoint ()
+
+outlineobjectsv1-1	
+		c:outline ()
+
+		*error* (msg)
+
+		LM:outline (sel)
+
+		LM:ssboundingbox (s)
+
+		LM:startundo (doc)
+
+		LM:endundo (doc)
+
+siteplan-utils
+		c:mpo ()
+
+		c:uplay ()
+
+Downloaded files. See file for documentation. All functions copied to other files if used.
+del-layer
+		delbylayer (layname)
+
+		c:outline ()
+
+		LM:outline (sel)
+
+		LM:ssboundingbox (s)
+
+		LM:startundo (doc)
+
+		LM:endundo (doc)
+
+OutlineObjectsV1-1
+		c:outline ()
+
+		*error* (msg)
+
+		LM:outline (sel)
+
+		LM:ssboundingbox (s)
+
+		LM:startundo (doc)
+
+		LM:endundo (doc)
+
+sel_by_OD_US
+		c:Sel_By_OD ()
+
+WriteCSV-V1-1
+
+		LM:writecsv (lst csv)
+
+	;writecsv but append instead of overwrite
+		appendcsv (lst csv)
+
+		LM:lst->csv (lst sep)
+
+		LM:csv-addquotes (str sep)

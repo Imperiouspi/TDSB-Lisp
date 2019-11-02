@@ -1,0 +1,8 @@
+1. Parking icon
+2. Circles -> polyline
+3. Check basketball nets -> add in
+4. Scale soccer posts
+5. Replace Portables w/portable 2
+6. Add new parking lines -> xplode hatch ansi 31 size 8 or 6
+7. Add fence gate @ 45deg. on gate layer, join w/trimmed circle to make /)
+8. Change A-rooves to not red -> 230,82,75

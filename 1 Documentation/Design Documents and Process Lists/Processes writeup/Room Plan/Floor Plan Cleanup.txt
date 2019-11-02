@@ -1,0 +1,4 @@
+Floor Plan Cleanup
+1. Run PREPMERGE (or PM).
+2. Run RFC, which removes polyface meshes and 2d polylines.
+3. Should already be cleaned if coming from a redraw, and I already batch cleaned the rest of them.

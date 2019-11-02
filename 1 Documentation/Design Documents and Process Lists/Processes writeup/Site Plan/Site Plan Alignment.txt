@@ -1,0 +1,5 @@
+Site Plan Alignment
+1. run PREPALIGN. Does several small tasks, see documentation.
+2. run STRACE. Adds SITE PLAN TRACE to the drawing.
+3. Move and Rotate Site Plan into place over the SITE PLAN TRACE image. Use the index at the bottom to find where it is.
+4. run STRACE to remove SITE PLAN TRACE.

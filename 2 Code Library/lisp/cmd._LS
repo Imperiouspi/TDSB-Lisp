@@ -1,0 +1,5 @@
+(command "shell" "powershell.exe -ExecutionPolicy Bypass -File \"H:\\Map 3d\\2 Lisp Library (Refactored)\\getname.ps1\"")
+(while (not (findfile "H:\\tmp.txt")))
+(setq f (open "H:\\tmp.txt" "r"))
+(print (read-line f))
+(close f)

@@ -1,0 +1,33 @@
+(load "util")
+
+;Determine which order labels are grabbed when selecting them.
+(defun C:TESTCOLOR ( / ss blockLargeSS blockMediumSS blockSmallSS c)
+  	(LM:startundo (LM:acdoc))
+	(setq ss (ssadd))
+	(setq blockLargeSS (ssget "X" (list (cons 8 "tdsb-smsc-roomlabels") (cons 2 "smsc-room label-large"))))
+	(setq blockMediumSS(ssget "X" (list (cons 8 "tdsb-smsc-roomlabels") (cons 2 "smsc-room label-medium"))))
+	(setq blockSmallSS(ssget "X" (list (cons 8 "tdsb-smsc-roomlabels") (cons 2 "smsc-room label-small"))))
+
+	;Merge block selection sets into nameblockSS
+	(setq c 0)
+	(repeat (sslength blockLargeSS)
+		(ssadd (ssname blockLargeSS c) ss)
+		(setq c (+ 1 c))
+	)
+	(setq c 0)
+	(repeat (sslength blockMediumSS)
+		(ssadd (ssname blockMediumSS c) ss)
+		(setq c (+ 1 c))
+	)
+	(setq c 0)
+	(repeat (sslength blockSmallSS)
+		(ssadd (ssname blockSmallSS c) ss)
+		(setq c (+ 1 c))
+	)
+	(setq c 0)
+	(repeat 1000
+		(setcolor (entget (ssname ss c)) (list 255 0 0))
+		(setq c (+ c 1))
+	)
+	(LM:endundo (LM:acdoc))
+)

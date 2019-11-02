@@ -1,0 +1,2 @@
+TIPS:
+Map network drive to use batchlisp!

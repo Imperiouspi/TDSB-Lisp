@@ -1,0 +1,21 @@
+New Process:
+1. Sort by Clockwise (done)
+	(a) Get Centroids of each net area
+	(b) Sorting Algorithm
+		(i) Sort into buckets of closest edge
+		(ii) sort buckets by distance to first point
+	(c) Combine into list
+	(d) Choose first point (distance to entrance)
+	(e) send precedors to end
+2. For each
+	(a) Get assumed label (not found, jump to iii)
+		(i) Confirmation: Y/N
+			(>) Indicate (grvecs vlist trans)
+			(>) https://knowledge.autodesk.com/search-result/caas/CloudHelp/cloudhelp/2015/ENU/AutoCAD-AutoLISP/files/GUID-44B8C277-4140-4F4C-ACF2-3332CC463021-htm.html
+		(ii) Y: go to next
+		(iii) N: Which label? (Select/None)
+		(iv) Export
+3. Export
+	(a) Assign new ID
+	(b) Old ID
+	(c) Label details
